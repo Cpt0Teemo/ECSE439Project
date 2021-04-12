@@ -1,0 +1,42 @@
+grammar org.xtext.example.warehouse.WarehouseModelling with org.eclipse.xtext.common.Terminals
+
+generate warehouseModelling "http://www.xtext.org/example/warehouse/WarehouseModelling"
+
+WarehouseManagement:
+	(companies+=Company)*
+	
+;
+
+Company:
+	'Company' name=ID address=ID
+	'Warehouses:'
+	(warehouses+=Warehouse)*
+	'Teams:'
+	(teams+=Team)*
+;
+
+Warehouse:
+	'Warehouse' name=ID '{'
+		(workers+=Person)*
+	'}'
+;
+
+Team:
+	'Team' id=ID
+;
+
+Person:
+	'Person' name=ID
+;
+
+Role:
+	Employee | Manager
+;
+
+Employee:
+	'Employee' startDate=ID endDate=ID 
+;
+
+Manager:
+	'Manager' startDate=ID endDate=ID 'of' 'team'
+;
