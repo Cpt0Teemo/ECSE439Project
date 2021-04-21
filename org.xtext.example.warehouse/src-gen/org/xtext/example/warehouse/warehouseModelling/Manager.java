@@ -9,6 +9,12 @@ package org.xtext.example.warehouse.warehouseModelling;
  * A representation of the model object '<em><b>Manager</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Manager#getManages <em>Manages</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage#getManager()
  * @model
@@ -16,4 +22,26 @@ package org.xtext.example.warehouse.warehouseModelling;
  */
 public interface Manager extends Role
 {
+  /**
+   * Returns the value of the '<em><b>Manages</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Manages</em>' reference.
+   * @see #setManages(Team)
+   * @see org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage#getManager_Manages()
+   * @model
+   * @generated
+   */
+  Team getManages();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.warehouse.warehouseModelling.Manager#getManages <em>Manages</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Manages</em>' reference.
+   * @see #getManages()
+   * @generated
+   */
+  void setManages(Team value);
+
 } // Manager

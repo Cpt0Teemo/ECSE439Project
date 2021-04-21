@@ -8,6 +8,7 @@ import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -52,6 +53,9 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		private final Keyword cTeamsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cTeamsAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cTeamsTeamParserRuleCall_6_0 = (RuleCall)cTeamsAssignment_6.eContents().get(0);
+		private final Keyword cTasksKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cTasksAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cTasksTaskParserRuleCall_8_0 = (RuleCall)cTasksAssignment_8.eContents().get(0);
 		
 		//Company:
 		//    'Company' name=ID address=ID
@@ -59,6 +63,8 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		//    (warehouses+=Warehouse)*
 		//    'Teams:'
 		//    (teams+=Team)*
+		//    'Tasks:'
+		//    (tasks+=Task)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -67,6 +73,8 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		//(warehouses+=Warehouse)*
 		//'Teams:'
 		//(teams+=Team)*
+		//'Tasks:'
+		//(tasks+=Task)*
 		public Group getGroup() { return cGroup; }
 		
 		//'Company'
@@ -101,6 +109,15 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		
 		//Team
 		public RuleCall getTeamsTeamParserRuleCall_6_0() { return cTeamsTeamParserRuleCall_6_0; }
+		
+		//'Tasks:'
+		public Keyword getTasksKeyword_7() { return cTasksKeyword_7; }
+		
+		//(tasks+=Task)*
+		public Assignment getTasksAssignment_8() { return cTasksAssignment_8; }
+		
+		//Task
+		public RuleCall getTasksTaskParserRuleCall_8_0() { return cTasksTaskParserRuleCall_8_0; }
 	}
 	public class WarehouseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Warehouse");
@@ -150,25 +167,25 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Team");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTeamKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Team:
-		//    'Team' id=ID
+		//    'Team' name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Team' id=ID
+		//'Team' name=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'Team'
 		public Keyword getTeamKeyword_0() { return cTeamKeyword_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	public class PersonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Person");
@@ -176,13 +193,23 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		private final Keyword cPersonKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cRolesKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cRolesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRolesRoleParserRuleCall_5_0 = (RuleCall)cRolesAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cRolesAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cRolesRoleParserRuleCall_6_1_0 = (RuleCall)cRolesAssignment_6_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Person:
-		//    'Person' name=ID
+		//    'Person' name=ID 'with' 'roles' '[' (roles+=Role) (',' (roles+=Role))* ']'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Person' name=ID
+		//'Person' name=ID 'with' 'roles' '[' (roles+=Role) (',' (roles+=Role))* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'Person'
@@ -193,6 +220,36 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		
+		//'roles'
+		public Keyword getRolesKeyword_3() { return cRolesKeyword_3; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+		
+		//(roles+=Role)
+		public Assignment getRolesAssignment_5() { return cRolesAssignment_5; }
+		
+		//Role
+		public RuleCall getRolesRoleParserRuleCall_5_0() { return cRolesRoleParserRuleCall_5_0; }
+		
+		//(',' (roles+=Role))*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//','
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		
+		//(roles+=Role)
+		public Assignment getRolesAssignment_6_1() { return cRolesAssignment_6_1; }
+		
+		//Role
+		public RuleCall getRolesRoleParserRuleCall_6_1_0() { return cRolesRoleParserRuleCall_6_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
 	}
 	public class RoleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Role");
@@ -218,73 +275,271 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Employee");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cEmployeeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cStartDateAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStartDateIDTerminalRuleCall_1_0 = (RuleCall)cStartDateAssignment_1.eContents().get(0);
-		private final Assignment cEndDateAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cEndDateIDTerminalRuleCall_2_0 = (RuleCall)cEndDateAssignment_2.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cStartDateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStartDateSTRINGTerminalRuleCall_2_0 = (RuleCall)cStartDateAssignment_2.eContents().get(0);
+		private final Assignment cEndDateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEndDateSTRINGTerminalRuleCall_3_0 = (RuleCall)cEndDateAssignment_3.eContents().get(0);
+		private final Keyword cAvailableKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cForKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cAvailabilitiesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cAvailabilitiesAvailabilityParserRuleCall_6_0 = (RuleCall)cAvailabilitiesAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cAvailabilitiesAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cAvailabilitiesAvailabilityParserRuleCall_7_1_0 = (RuleCall)cAvailabilitiesAssignment_7_1.eContents().get(0);
 		
 		//Employee:
-		//    'Employee' startDate=ID endDate=ID
+		//    'Employee' id=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Employee' startDate=ID endDate=ID
+		//'Employee' id=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))*
 		public Group getGroup() { return cGroup; }
 		
 		//'Employee'
 		public Keyword getEmployeeKeyword_0() { return cEmployeeKeyword_0; }
 		
-		//startDate=ID
-		public Assignment getStartDateAssignment_1() { return cStartDateAssignment_1; }
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
 		//ID
-		public RuleCall getStartDateIDTerminalRuleCall_1_0() { return cStartDateIDTerminalRuleCall_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 		
-		//endDate=ID
-		public Assignment getEndDateAssignment_2() { return cEndDateAssignment_2; }
+		//startDate=STRING
+		public Assignment getStartDateAssignment_2() { return cStartDateAssignment_2; }
 		
-		//ID
-		public RuleCall getEndDateIDTerminalRuleCall_2_0() { return cEndDateIDTerminalRuleCall_2_0; }
+		//STRING
+		public RuleCall getStartDateSTRINGTerminalRuleCall_2_0() { return cStartDateSTRINGTerminalRuleCall_2_0; }
+		
+		//endDate=STRING
+		public Assignment getEndDateAssignment_3() { return cEndDateAssignment_3; }
+		
+		//STRING
+		public RuleCall getEndDateSTRINGTerminalRuleCall_3_0() { return cEndDateSTRINGTerminalRuleCall_3_0; }
+		
+		//'available'
+		public Keyword getAvailableKeyword_4() { return cAvailableKeyword_4; }
+		
+		//'for'
+		public Keyword getForKeyword_5() { return cForKeyword_5; }
+		
+		//(availabilities+=Availability)
+		public Assignment getAvailabilitiesAssignment_6() { return cAvailabilitiesAssignment_6; }
+		
+		//Availability
+		public RuleCall getAvailabilitiesAvailabilityParserRuleCall_6_0() { return cAvailabilitiesAvailabilityParserRuleCall_6_0; }
+		
+		//(',' (availabilities+=Availability))*
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//','
+		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+		
+		//(availabilities+=Availability)
+		public Assignment getAvailabilitiesAssignment_7_1() { return cAvailabilitiesAssignment_7_1; }
+		
+		//Availability
+		public RuleCall getAvailabilitiesAvailabilityParserRuleCall_7_1_0() { return cAvailabilitiesAvailabilityParserRuleCall_7_1_0; }
 	}
 	public class ManagerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Manager");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cManagerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cStartDateAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStartDateIDTerminalRuleCall_1_0 = (RuleCall)cStartDateAssignment_1.eContents().get(0);
-		private final Assignment cEndDateAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cEndDateIDTerminalRuleCall_2_0 = (RuleCall)cEndDateAssignment_2.eContents().get(0);
-		private final Keyword cOfKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cTeamKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cStartDateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStartDateSTRINGTerminalRuleCall_2_0 = (RuleCall)cStartDateAssignment_2.eContents().get(0);
+		private final Assignment cEndDateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEndDateSTRINGTerminalRuleCall_3_0 = (RuleCall)cEndDateAssignment_3.eContents().get(0);
+		private final Keyword cOfKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cTeamKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cManagesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cManagesTeamCrossReference_6_0 = (CrossReference)cManagesAssignment_6.eContents().get(0);
+		private final RuleCall cManagesTeamIDTerminalRuleCall_6_0_1 = (RuleCall)cManagesTeamCrossReference_6_0.eContents().get(1);
 		
 		//Manager:
-		//    'Manager' startDate=ID endDate=ID 'of' 'team'
+		//    'Manager' id=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Manager' startDate=ID endDate=ID 'of' 'team'
+		//'Manager' id=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
 		public Group getGroup() { return cGroup; }
 		
 		//'Manager'
 		public Keyword getManagerKeyword_0() { return cManagerKeyword_0; }
 		
-		//startDate=ID
-		public Assignment getStartDateAssignment_1() { return cStartDateAssignment_1; }
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
 		//ID
-		public RuleCall getStartDateIDTerminalRuleCall_1_0() { return cStartDateIDTerminalRuleCall_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 		
-		//endDate=ID
-		public Assignment getEndDateAssignment_2() { return cEndDateAssignment_2; }
+		//startDate=STRING
+		public Assignment getStartDateAssignment_2() { return cStartDateAssignment_2; }
 		
-		//ID
-		public RuleCall getEndDateIDTerminalRuleCall_2_0() { return cEndDateIDTerminalRuleCall_2_0; }
+		//STRING
+		public RuleCall getStartDateSTRINGTerminalRuleCall_2_0() { return cStartDateSTRINGTerminalRuleCall_2_0; }
+		
+		//endDate=STRING
+		public Assignment getEndDateAssignment_3() { return cEndDateAssignment_3; }
+		
+		//STRING
+		public RuleCall getEndDateSTRINGTerminalRuleCall_3_0() { return cEndDateSTRINGTerminalRuleCall_3_0; }
 		
 		//'of'
-		public Keyword getOfKeyword_3() { return cOfKeyword_3; }
+		public Keyword getOfKeyword_4() { return cOfKeyword_4; }
 		
 		//'team'
-		public Keyword getTeamKeyword_4() { return cTeamKeyword_4; }
+		public Keyword getTeamKeyword_5() { return cTeamKeyword_5; }
+		
+		//manages=[Team]
+		public Assignment getManagesAssignment_6() { return cManagesAssignment_6; }
+		
+		//[Team]
+		public CrossReference getManagesTeamCrossReference_6_0() { return cManagesTeamCrossReference_6_0; }
+		
+		//ID
+		public RuleCall getManagesTeamIDTerminalRuleCall_6_0_1() { return cManagesTeamIDTerminalRuleCall_6_0_1; }
+	}
+	public class TaskElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Task");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTaskKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
+		private final Assignment cAssignmentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cAssignmentTaskAssignmentParserRuleCall_3_0 = (RuleCall)cAssignmentAssignment_3.eContents().get(0);
+		
+		//Task:
+		//    'Task' id=ID description=STRING
+		//    assignment?=TaskAssignment
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Task' id=ID description=STRING
+		//assignment?=TaskAssignment
+		public Group getGroup() { return cGroup; }
+		
+		//'Task'
+		public Keyword getTaskKeyword_0() { return cTaskKeyword_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		
+		//description=STRING
+		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
+		
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_0; }
+		
+		//assignment?=TaskAssignment
+		public Assignment getAssignmentAssignment_3() { return cAssignmentAssignment_3; }
+		
+		//TaskAssignment
+		public RuleCall getAssignmentTaskAssignmentParserRuleCall_3_0() { return cAssignmentTaskAssignmentParserRuleCall_3_0; }
+	}
+	public class TaskAssignmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.TaskAssignment");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTaskAssignmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cByKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRoleAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cRoleRoleCrossReference_2_0 = (CrossReference)cRoleAssignment_2.eContents().get(0);
+		private final RuleCall cRoleRoleIDTerminalRuleCall_2_0_1 = (RuleCall)cRoleRoleCrossReference_2_0.eContents().get(1);
+		private final Keyword cDuringKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cAvailabilityAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cAvailabilityAvailabilityCrossReference_4_0 = (CrossReference)cAvailabilityAssignment_4.eContents().get(0);
+		private final RuleCall cAvailabilityAvailabilityIDTerminalRuleCall_4_0_1 = (RuleCall)cAvailabilityAvailabilityCrossReference_4_0.eContents().get(1);
+		private final Assignment cIsDoneAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final Keyword cIsDoneCompletedKeyword_5_0 = (Keyword)cIsDoneAssignment_5.eContents().get(0);
+		
+		//TaskAssignment:
+		//    'TaskAssignment' 'by' role=[Role] 'during' availability=[Availability] isDone?='Completed'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'TaskAssignment' 'by' role=[Role] 'during' availability=[Availability] isDone?='Completed'
+		public Group getGroup() { return cGroup; }
+		
+		//'TaskAssignment'
+		public Keyword getTaskAssignmentKeyword_0() { return cTaskAssignmentKeyword_0; }
+		
+		//'by'
+		public Keyword getByKeyword_1() { return cByKeyword_1; }
+		
+		//role=[Role]
+		public Assignment getRoleAssignment_2() { return cRoleAssignment_2; }
+		
+		//[Role]
+		public CrossReference getRoleRoleCrossReference_2_0() { return cRoleRoleCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getRoleRoleIDTerminalRuleCall_2_0_1() { return cRoleRoleIDTerminalRuleCall_2_0_1; }
+		
+		//'during'
+		public Keyword getDuringKeyword_3() { return cDuringKeyword_3; }
+		
+		//availability=[Availability]
+		public Assignment getAvailabilityAssignment_4() { return cAvailabilityAssignment_4; }
+		
+		//[Availability]
+		public CrossReference getAvailabilityAvailabilityCrossReference_4_0() { return cAvailabilityAvailabilityCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getAvailabilityAvailabilityIDTerminalRuleCall_4_0_1() { return cAvailabilityAvailabilityIDTerminalRuleCall_4_0_1; }
+		
+		//isDone?='Completed'
+		public Assignment getIsDoneAssignment_5() { return cIsDoneAssignment_5; }
+		
+		//'Completed'
+		public Keyword getIsDoneCompletedKeyword_5_0() { return cIsDoneCompletedKeyword_5_0; }
+	}
+	public class AvailabilityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.warehouse.WarehouseModelling.Availability");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAvailabilityKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFromKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStartTimeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStartTimeIDTerminalRuleCall_2_0 = (RuleCall)cStartTimeAssignment_2.eContents().get(0);
+		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cEndTimeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cEndTimeIDTerminalRuleCall_4_0 = (RuleCall)cEndTimeAssignment_4.eContents().get(0);
+		
+		//Availability:
+		//    'Availability' 'from' startTime=ID 'to' endTime=ID
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Availability' 'from' startTime=ID 'to' endTime=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'Availability'
+		public Keyword getAvailabilityKeyword_0() { return cAvailabilityKeyword_0; }
+		
+		//'from'
+		public Keyword getFromKeyword_1() { return cFromKeyword_1; }
+		
+		//startTime=ID
+		public Assignment getStartTimeAssignment_2() { return cStartTimeAssignment_2; }
+		
+		//ID
+		public RuleCall getStartTimeIDTerminalRuleCall_2_0() { return cStartTimeIDTerminalRuleCall_2_0; }
+		
+		//'to'
+		public Keyword getToKeyword_3() { return cToKeyword_3; }
+		
+		//endTime=ID
+		public Assignment getEndTimeAssignment_4() { return cEndTimeAssignment_4; }
+		
+		//ID
+		public RuleCall getEndTimeIDTerminalRuleCall_4_0() { return cEndTimeIDTerminalRuleCall_4_0; }
 	}
 	
 	
@@ -296,6 +551,9 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	private final RoleElements pRole;
 	private final EmployeeElements pEmployee;
 	private final ManagerElements pManager;
+	private final TaskElements pTask;
+	private final TaskAssignmentElements pTaskAssignment;
+	private final AvailabilityElements pAvailability;
 	
 	private final Grammar grammar;
 	
@@ -314,6 +572,9 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 		this.pRole = new RoleElements();
 		this.pEmployee = new EmployeeElements();
 		this.pManager = new ManagerElements();
+		this.pTask = new TaskElements();
+		this.pTaskAssignment = new TaskAssignmentElements();
+		this.pAvailability = new AvailabilityElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -360,6 +621,8 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	//    (warehouses+=Warehouse)*
 	//    'Teams:'
 	//    (teams+=Team)*
+	//    'Tasks:'
+	//    (tasks+=Task)*
 	//;
 	public CompanyElements getCompanyAccess() {
 		return pCompany;
@@ -383,7 +646,7 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	}
 	
 	//Team:
-	//    'Team' id=ID
+	//    'Team' name=ID
 	//;
 	public TeamElements getTeamAccess() {
 		return pTeam;
@@ -394,7 +657,7 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	}
 	
 	//Person:
-	//    'Person' name=ID
+	//    'Person' name=ID 'with' 'roles' '[' (roles+=Role) (',' (roles+=Role))* ']'
 	//;
 	public PersonElements getPersonAccess() {
 		return pPerson;
@@ -416,7 +679,7 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	}
 	
 	//Employee:
-	//    'Employee' startDate=ID endDate=ID
+	//    'Employee' id=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))*
 	//;
 	public EmployeeElements getEmployeeAccess() {
 		return pEmployee;
@@ -427,7 +690,7 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	}
 	
 	//Manager:
-	//    'Manager' startDate=ID endDate=ID 'of' 'team'
+	//    'Manager' id=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
 	//;
 	public ManagerElements getManagerAccess() {
 		return pManager;
@@ -435,6 +698,40 @@ public class WarehouseModellingGrammarAccess extends AbstractElementFinder.Abstr
 	
 	public ParserRule getManagerRule() {
 		return getManagerAccess().getRule();
+	}
+	
+	//Task:
+	//    'Task' id=ID description=STRING
+	//    assignment?=TaskAssignment
+	//;
+	public TaskElements getTaskAccess() {
+		return pTask;
+	}
+	
+	public ParserRule getTaskRule() {
+		return getTaskAccess().getRule();
+	}
+	
+	//TaskAssignment:
+	//    'TaskAssignment' 'by' role=[Role] 'during' availability=[Availability] isDone?='Completed'
+	//;
+	public TaskAssignmentElements getTaskAssignmentAccess() {
+		return pTaskAssignment;
+	}
+	
+	public ParserRule getTaskAssignmentRule() {
+		return getTaskAssignmentAccess().getRule();
+	}
+	
+	//Availability:
+	//    'Availability' 'from' startTime=ID 'to' endTime=ID
+	//;
+	public AvailabilityElements getAvailabilityAccess() {
+		return pAvailability;
+	}
+	
+	public ParserRule getAvailabilityRule() {
+		return getAvailabilityAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

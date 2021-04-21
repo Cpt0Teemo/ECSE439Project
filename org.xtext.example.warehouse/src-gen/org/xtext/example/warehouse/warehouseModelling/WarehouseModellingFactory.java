@@ -96,6 +96,33 @@ public interface WarehouseModellingFactory extends EFactory
   Manager createManager();
 
   /**
+   * Returns a new object of class '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task</em>'.
+   * @generated
+   */
+  Task createTask();
+
+  /**
+   * Returns a new object of class '<em>Task Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task Assignment</em>'.
+   * @generated
+   */
+  TaskAssignment createTaskAssignment();
+
+  /**
+   * Returns a new object of class '<em>Availability</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Availability</em>'.
+   * @generated
+   */
+  Availability createAvailability();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -3,8 +3,19 @@
  */
 package org.xtext.example.warehouse.warehouseModelling.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.xtext.example.warehouse.warehouseModelling.Availability;
 import org.xtext.example.warehouse.warehouseModelling.Employee;
 import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
 
@@ -12,11 +23,27 @@ import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Employee</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.EmployeeImpl#getAvailabilities <em>Availabilities</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class EmployeeImpl extends RoleImpl implements Employee
 {
+  /**
+   * The cached value of the '{@link #getAvailabilities() <em>Availabilities</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAvailabilities()
+   * @generated
+   * @ordered
+   */
+  protected EList<Availability> availabilities;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +63,105 @@ public class EmployeeImpl extends RoleImpl implements Employee
   protected EClass eStaticClass()
   {
     return WarehouseModellingPackage.Literals.EMPLOYEE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Availability> getAvailabilities()
+  {
+    if (availabilities == null)
+    {
+      availabilities = new EObjectContainmentEList<Availability>(Availability.class, this, WarehouseModellingPackage.EMPLOYEE__AVAILABILITIES);
+    }
+    return availabilities;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.EMPLOYEE__AVAILABILITIES:
+        return ((InternalEList<?>)getAvailabilities()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.EMPLOYEE__AVAILABILITIES:
+        return getAvailabilities();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.EMPLOYEE__AVAILABILITIES:
+        getAvailabilities().clear();
+        getAvailabilities().addAll((Collection<? extends Availability>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.EMPLOYEE__AVAILABILITIES:
+        getAvailabilities().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.EMPLOYEE__AVAILABILITIES:
+        return availabilities != null && !availabilities.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //EmployeeImpl

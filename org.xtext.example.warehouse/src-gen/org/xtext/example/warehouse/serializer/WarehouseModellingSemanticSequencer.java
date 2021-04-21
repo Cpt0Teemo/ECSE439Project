@@ -15,10 +15,13 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.warehouse.services.WarehouseModellingGrammarAccess;
+import org.xtext.example.warehouse.warehouseModelling.Availability;
 import org.xtext.example.warehouse.warehouseModelling.Company;
 import org.xtext.example.warehouse.warehouseModelling.Employee;
 import org.xtext.example.warehouse.warehouseModelling.Manager;
 import org.xtext.example.warehouse.warehouseModelling.Person;
+import org.xtext.example.warehouse.warehouseModelling.Task;
+import org.xtext.example.warehouse.warehouseModelling.TaskAssignment;
 import org.xtext.example.warehouse.warehouseModelling.Team;
 import org.xtext.example.warehouse.warehouseModelling.Warehouse;
 import org.xtext.example.warehouse.warehouseModelling.WarehouseManagement;
@@ -38,6 +41,9 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == WarehouseModellingPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case WarehouseModellingPackage.AVAILABILITY:
+				sequence_Availability(context, (Availability) semanticObject); 
+				return; 
 			case WarehouseModellingPackage.COMPANY:
 				sequence_Company(context, (Company) semanticObject); 
 				return; 
@@ -49,6 +55,12 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 				return; 
 			case WarehouseModellingPackage.PERSON:
 				sequence_Person(context, (Person) semanticObject); 
+				return; 
+			case WarehouseModellingPackage.TASK:
+				sequence_Task(context, (Task) semanticObject); 
+				return; 
+			case WarehouseModellingPackage.TASK_ASSIGNMENT:
+				sequence_TaskAssignment(context, (TaskAssignment) semanticObject); 
 				return; 
 			case WarehouseModellingPackage.TEAM:
 				sequence_Team(context, (Team) semanticObject); 
@@ -66,10 +78,31 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     Availability returns Availability
+	 *
+	 * Constraint:
+	 *     (startTime=ID endTime=ID)
+	 */
+	protected void sequence_Availability(ISerializationContext context, Availability semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.AVAILABILITY__START_TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.AVAILABILITY__START_TIME));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.AVAILABILITY__END_TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.AVAILABILITY__END_TIME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAvailabilityAccess().getStartTimeIDTerminalRuleCall_2_0(), semanticObject.getStartTime());
+		feeder.accept(grammarAccess.getAvailabilityAccess().getEndTimeIDTerminalRuleCall_4_0(), semanticObject.getEndTime());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Company returns Company
 	 *
 	 * Constraint:
-	 *     (name=ID address=ID warehouses+=Warehouse* teams+=Team*)
+	 *     (name=ID address=ID warehouses+=Warehouse* teams+=Team* tasks+=Task*)
 	 */
 	protected void sequence_Company(ISerializationContext context, Company semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -82,19 +115,10 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 	 *     Employee returns Employee
 	 *
 	 * Constraint:
-	 *     (startDate=ID endDate=ID)
+	 *     (id=ID startDate=STRING endDate=STRING availabilities+=Availability availabilities+=Availability*)
 	 */
 	protected void sequence_Employee(ISerializationContext context, Employee semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.ROLE__START_DATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.ROLE__START_DATE));
-			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.ROLE__END_DATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.ROLE__END_DATE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEmployeeAccess().getStartDateIDTerminalRuleCall_1_0(), semanticObject.getStartDate());
-		feeder.accept(grammarAccess.getEmployeeAccess().getEndDateIDTerminalRuleCall_2_0(), semanticObject.getEndDate());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -104,18 +128,24 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 	 *     Manager returns Manager
 	 *
 	 * Constraint:
-	 *     (startDate=ID endDate=ID)
+	 *     (id=ID startDate=STRING endDate=STRING manages=[Team|ID])
 	 */
 	protected void sequence_Manager(ISerializationContext context, Manager semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.ROLE__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.ROLE__ID));
 			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.ROLE__START_DATE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.ROLE__START_DATE));
 			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.ROLE__END_DATE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.ROLE__END_DATE));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.MANAGER__MANAGES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.MANAGER__MANAGES));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getManagerAccess().getStartDateIDTerminalRuleCall_1_0(), semanticObject.getStartDate());
-		feeder.accept(grammarAccess.getManagerAccess().getEndDateIDTerminalRuleCall_2_0(), semanticObject.getEndDate());
+		feeder.accept(grammarAccess.getManagerAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getManagerAccess().getStartDateSTRINGTerminalRuleCall_2_0(), semanticObject.getStartDate());
+		feeder.accept(grammarAccess.getManagerAccess().getEndDateSTRINGTerminalRuleCall_3_0(), semanticObject.getEndDate());
+		feeder.accept(grammarAccess.getManagerAccess().getManagesTeamIDTerminalRuleCall_6_0_1(), semanticObject.eGet(WarehouseModellingPackage.Literals.MANAGER__MANAGES, false));
 		feeder.finish();
 	}
 	
@@ -125,15 +155,57 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 	 *     Person returns Person
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID roles+=Role roles+=Role*)
 	 */
 	protected void sequence_Person(ISerializationContext context, Person semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TaskAssignment returns TaskAssignment
+	 *
+	 * Constraint:
+	 *     (role=[Role|ID] availability=[Availability|ID] isDone?='Completed')
+	 */
+	protected void sequence_TaskAssignment(ISerializationContext context, TaskAssignment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.PERSON__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.PERSON__NAME));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__ROLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__ROLE));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__AVAILABILITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__AVAILABILITY));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__IS_DONE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__IS_DONE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPersonAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTaskAssignmentAccess().getRoleRoleIDTerminalRuleCall_2_0_1(), semanticObject.eGet(WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__ROLE, false));
+		feeder.accept(grammarAccess.getTaskAssignmentAccess().getAvailabilityAvailabilityIDTerminalRuleCall_4_0_1(), semanticObject.eGet(WarehouseModellingPackage.Literals.TASK_ASSIGNMENT__AVAILABILITY, false));
+		feeder.accept(grammarAccess.getTaskAssignmentAccess().getIsDoneCompletedKeyword_5_0(), semanticObject.isIsDone());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Task returns Task
+	 *
+	 * Constraint:
+	 *     (id=ID description=STRING assignment?=TaskAssignment)
+	 */
+	protected void sequence_Task(ISerializationContext context, Task semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TASK__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TASK__ID));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TASK__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TASK__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TASK__ASSIGNMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TASK__ASSIGNMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTaskAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getTaskAccess().getDescriptionSTRINGTerminalRuleCall_2_0(), semanticObject.getDescription());
+		feeder.accept(grammarAccess.getTaskAccess().getAssignmentTaskAssignmentParserRuleCall_3_0(), semanticObject.isAssignment());
 		feeder.finish();
 	}
 	
@@ -143,15 +215,15 @@ public class WarehouseModellingSemanticSequencer extends AbstractDelegatingSeman
 	 *     Team returns Team
 	 *
 	 * Constraint:
-	 *     id=ID
+	 *     name=ID
 	 */
 	protected void sequence_Team(ISerializationContext context, Team semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TEAM__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TEAM__ID));
+			if (transientValues.isValueTransient(semanticObject, WarehouseModellingPackage.Literals.TEAM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WarehouseModellingPackage.Literals.TEAM__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTeamAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getTeamAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

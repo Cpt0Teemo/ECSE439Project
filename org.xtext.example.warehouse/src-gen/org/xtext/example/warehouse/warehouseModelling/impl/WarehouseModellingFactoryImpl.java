@@ -73,6 +73,9 @@ public class WarehouseModellingFactoryImpl extends EFactoryImpl implements Wareh
       case WarehouseModellingPackage.ROLE: return createRole();
       case WarehouseModellingPackage.EMPLOYEE: return createEmployee();
       case WarehouseModellingPackage.MANAGER: return createManager();
+      case WarehouseModellingPackage.TASK: return createTask();
+      case WarehouseModellingPackage.TASK_ASSIGNMENT: return createTaskAssignment();
+      case WarehouseModellingPackage.AVAILABILITY: return createAvailability();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -172,6 +175,42 @@ public class WarehouseModellingFactoryImpl extends EFactoryImpl implements Wareh
   {
     ManagerImpl manager = new ManagerImpl();
     return manager;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Task createTask()
+  {
+    TaskImpl task = new TaskImpl();
+    return task;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TaskAssignment createTaskAssignment()
+  {
+    TaskAssignmentImpl taskAssignment = new TaskAssignmentImpl();
+    return taskAssignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Availability createAvailability()
+  {
+    AvailabilityImpl availability = new AvailabilityImpl();
+    return availability;
   }
 
   /**

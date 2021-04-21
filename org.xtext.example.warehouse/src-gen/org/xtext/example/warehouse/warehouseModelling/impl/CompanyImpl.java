@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.warehouse.warehouseModelling.Company;
+import org.xtext.example.warehouse.warehouseModelling.Task;
 import org.xtext.example.warehouse.warehouseModelling.Team;
 import org.xtext.example.warehouse.warehouseModelling.Warehouse;
 import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
@@ -36,6 +37,7 @@ import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.CompanyImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.CompanyImpl#getWarehouses <em>Warehouses</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.CompanyImpl#getTeams <em>Teams</em>}</li>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.CompanyImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +103,16 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
    * @ordered
    */
   protected EList<Team> teams;
+
+  /**
+   * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTasks()
+   * @generated
+   * @ordered
+   */
+  protected EList<Task> tasks;
 
   /**
    * <!-- begin-user-doc -->
@@ -209,6 +221,21 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
    * @generated
    */
   @Override
+  public EList<Task> getTasks()
+  {
+    if (tasks == null)
+    {
+      tasks = new EObjectContainmentEList<Task>(Task.class, this, WarehouseModellingPackage.COMPANY__TASKS);
+    }
+    return tasks;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -217,6 +244,8 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
         return ((InternalEList<?>)getWarehouses()).basicRemove(otherEnd, msgs);
       case WarehouseModellingPackage.COMPANY__TEAMS:
         return ((InternalEList<?>)getTeams()).basicRemove(otherEnd, msgs);
+      case WarehouseModellingPackage.COMPANY__TASKS:
+        return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -239,6 +268,8 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
         return getWarehouses();
       case WarehouseModellingPackage.COMPANY__TEAMS:
         return getTeams();
+      case WarehouseModellingPackage.COMPANY__TASKS:
+        return getTasks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -268,6 +299,10 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
         getTeams().clear();
         getTeams().addAll((Collection<? extends Team>)newValue);
         return;
+      case WarehouseModellingPackage.COMPANY__TASKS:
+        getTasks().clear();
+        getTasks().addAll((Collection<? extends Task>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -294,6 +329,9 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
       case WarehouseModellingPackage.COMPANY__TEAMS:
         getTeams().clear();
         return;
+      case WarehouseModellingPackage.COMPANY__TASKS:
+        getTasks().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -316,6 +354,8 @@ public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
         return warehouses != null && !warehouses.isEmpty();
       case WarehouseModellingPackage.COMPANY__TEAMS:
         return teams != null && !teams.isEmpty();
+      case WarehouseModellingPackage.COMPANY__TASKS:
+        return tasks != null && !tasks.isEmpty();
     }
     return super.eIsSet(featureID);
   }

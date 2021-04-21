@@ -36,21 +36,42 @@ public class WarehouseModellingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getWarehouseAccess().getGroup(), "rule__Warehouse__Group__0");
 			builder.put(grammarAccess.getTeamAccess().getGroup(), "rule__Team__Group__0");
 			builder.put(grammarAccess.getPersonAccess().getGroup(), "rule__Person__Group__0");
+			builder.put(grammarAccess.getPersonAccess().getGroup_6(), "rule__Person__Group_6__0");
 			builder.put(grammarAccess.getEmployeeAccess().getGroup(), "rule__Employee__Group__0");
+			builder.put(grammarAccess.getEmployeeAccess().getGroup_7(), "rule__Employee__Group_7__0");
 			builder.put(grammarAccess.getManagerAccess().getGroup(), "rule__Manager__Group__0");
+			builder.put(grammarAccess.getTaskAccess().getGroup(), "rule__Task__Group__0");
+			builder.put(grammarAccess.getTaskAssignmentAccess().getGroup(), "rule__TaskAssignment__Group__0");
+			builder.put(grammarAccess.getAvailabilityAccess().getGroup(), "rule__Availability__Group__0");
 			builder.put(grammarAccess.getWarehouseManagementAccess().getCompaniesAssignment(), "rule__WarehouseManagement__CompaniesAssignment");
 			builder.put(grammarAccess.getCompanyAccess().getNameAssignment_1(), "rule__Company__NameAssignment_1");
 			builder.put(grammarAccess.getCompanyAccess().getAddressAssignment_2(), "rule__Company__AddressAssignment_2");
 			builder.put(grammarAccess.getCompanyAccess().getWarehousesAssignment_4(), "rule__Company__WarehousesAssignment_4");
 			builder.put(grammarAccess.getCompanyAccess().getTeamsAssignment_6(), "rule__Company__TeamsAssignment_6");
+			builder.put(grammarAccess.getCompanyAccess().getTasksAssignment_8(), "rule__Company__TasksAssignment_8");
 			builder.put(grammarAccess.getWarehouseAccess().getNameAssignment_1(), "rule__Warehouse__NameAssignment_1");
 			builder.put(grammarAccess.getWarehouseAccess().getWorkersAssignment_3(), "rule__Warehouse__WorkersAssignment_3");
-			builder.put(grammarAccess.getTeamAccess().getIdAssignment_1(), "rule__Team__IdAssignment_1");
+			builder.put(grammarAccess.getTeamAccess().getNameAssignment_1(), "rule__Team__NameAssignment_1");
 			builder.put(grammarAccess.getPersonAccess().getNameAssignment_1(), "rule__Person__NameAssignment_1");
-			builder.put(grammarAccess.getEmployeeAccess().getStartDateAssignment_1(), "rule__Employee__StartDateAssignment_1");
-			builder.put(grammarAccess.getEmployeeAccess().getEndDateAssignment_2(), "rule__Employee__EndDateAssignment_2");
-			builder.put(grammarAccess.getManagerAccess().getStartDateAssignment_1(), "rule__Manager__StartDateAssignment_1");
-			builder.put(grammarAccess.getManagerAccess().getEndDateAssignment_2(), "rule__Manager__EndDateAssignment_2");
+			builder.put(grammarAccess.getPersonAccess().getRolesAssignment_5(), "rule__Person__RolesAssignment_5");
+			builder.put(grammarAccess.getPersonAccess().getRolesAssignment_6_1(), "rule__Person__RolesAssignment_6_1");
+			builder.put(grammarAccess.getEmployeeAccess().getIdAssignment_1(), "rule__Employee__IdAssignment_1");
+			builder.put(grammarAccess.getEmployeeAccess().getStartDateAssignment_2(), "rule__Employee__StartDateAssignment_2");
+			builder.put(grammarAccess.getEmployeeAccess().getEndDateAssignment_3(), "rule__Employee__EndDateAssignment_3");
+			builder.put(grammarAccess.getEmployeeAccess().getAvailabilitiesAssignment_6(), "rule__Employee__AvailabilitiesAssignment_6");
+			builder.put(grammarAccess.getEmployeeAccess().getAvailabilitiesAssignment_7_1(), "rule__Employee__AvailabilitiesAssignment_7_1");
+			builder.put(grammarAccess.getManagerAccess().getIdAssignment_1(), "rule__Manager__IdAssignment_1");
+			builder.put(grammarAccess.getManagerAccess().getStartDateAssignment_2(), "rule__Manager__StartDateAssignment_2");
+			builder.put(grammarAccess.getManagerAccess().getEndDateAssignment_3(), "rule__Manager__EndDateAssignment_3");
+			builder.put(grammarAccess.getManagerAccess().getManagesAssignment_6(), "rule__Manager__ManagesAssignment_6");
+			builder.put(grammarAccess.getTaskAccess().getIdAssignment_1(), "rule__Task__IdAssignment_1");
+			builder.put(grammarAccess.getTaskAccess().getDescriptionAssignment_2(), "rule__Task__DescriptionAssignment_2");
+			builder.put(grammarAccess.getTaskAccess().getAssignmentAssignment_3(), "rule__Task__AssignmentAssignment_3");
+			builder.put(grammarAccess.getTaskAssignmentAccess().getRoleAssignment_2(), "rule__TaskAssignment__RoleAssignment_2");
+			builder.put(grammarAccess.getTaskAssignmentAccess().getAvailabilityAssignment_4(), "rule__TaskAssignment__AvailabilityAssignment_4");
+			builder.put(grammarAccess.getTaskAssignmentAccess().getIsDoneAssignment_5(), "rule__TaskAssignment__IsDoneAssignment_5");
+			builder.put(grammarAccess.getAvailabilityAccess().getStartTimeAssignment_2(), "rule__Availability__StartTimeAssignment_2");
+			builder.put(grammarAccess.getAvailabilityAccess().getEndTimeAssignment_4(), "rule__Availability__EndTimeAssignment_4");
 		}
 	}
 	

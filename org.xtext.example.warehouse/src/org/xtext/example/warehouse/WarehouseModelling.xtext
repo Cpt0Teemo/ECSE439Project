@@ -13,6 +13,8 @@ Company:
 	(warehouses+=Warehouse)*
 	'Teams:'
 	(teams+=Team)*
+	'Tasks:'
+	(tasks+=Task)*
 ;
 
 Warehouse:
@@ -22,11 +24,11 @@ Warehouse:
 ;
 
 Team:
-	'Team' id=ID
+	'Team' name=ID
 ;
 
 Person:
-	'Person' name=ID
+	'Person' name=ID 'with' 'roles' '[' (roles+=Role) (',' (roles+=Role))* ']'
 ;
 
 Role:
@@ -34,9 +36,22 @@ Role:
 ;
 
 Employee:
-	'Employee' startDate=ID endDate=ID 
+	'Employee' id=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))* 
 ;
 
 Manager:
-	'Manager' startDate=ID endDate=ID 'of' 'team'
+	'Manager' id=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
+;
+
+Task:
+	'Task' id=ID description=STRING
+	assignment?=TaskAssignment
+;
+
+TaskAssignment:
+	'TaskAssignment' 'by' role=[Role] 'during' availability=[Availability] isDone?='Completed'
+;
+
+Availability:
+	'Availability' 'from' startTime=ID 'to' endTime=ID
 ;

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Company#getAddress <em>Address</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Company#getWarehouses <em>Warehouses</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Company#getTeams <em>Teams</em>}</li>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Company#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage#getCompany()
@@ -95,5 +96,17 @@ public interface Company extends EObject
    * @generated
    */
   EList<Team> getTeams();
+
+  /**
+   * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.warehouse.warehouseModelling.Task}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tasks</em>' containment reference list.
+   * @see org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage#getCompany_Tasks()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Task> getTasks();
 
 } // Company

@@ -14,22 +14,43 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Company/address"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Company/warehouses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Company/teams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Company/tasks"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//Warehouse">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Warehouse/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Warehouse/workers"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//Team">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Team/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Team/name"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Person/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Person/roles"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/startDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/endDate"/>
     </genClasses>
-    <genClasses ecoreClass="WarehouseModelling.ecore#//Employee"/>
-    <genClasses ecoreClass="WarehouseModelling.ecore#//Manager"/>
+    <genClasses ecoreClass="WarehouseModelling.ecore#//Employee">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Employee/availabilities"/>
+    </genClasses>
+    <genClasses ecoreClass="WarehouseModelling.ecore#//Manager">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Manager/manages"/>
+    </genClasses>
+    <genClasses ecoreClass="WarehouseModelling.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Task/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Task/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Task/assignment"/>
+    </genClasses>
+    <genClasses ecoreClass="WarehouseModelling.ecore#//TaskAssignment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//TaskAssignment/role"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//TaskAssignment/availability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//TaskAssignment/isDone"/>
+    </genClasses>
+    <genClasses ecoreClass="WarehouseModelling.ecore#//Availability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Availability/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Availability/endTime"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

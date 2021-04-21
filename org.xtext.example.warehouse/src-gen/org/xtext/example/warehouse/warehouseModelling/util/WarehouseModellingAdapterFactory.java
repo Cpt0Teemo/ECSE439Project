@@ -116,6 +116,21 @@ public class WarehouseModellingAdapterFactory extends AdapterFactoryImpl
         return createManagerAdapter();
       }
       @Override
+      public Adapter caseTask(Task object)
+      {
+        return createTaskAdapter();
+      }
+      @Override
+      public Adapter caseTaskAssignment(TaskAssignment object)
+      {
+        return createTaskAssignmentAdapter();
+      }
+      @Override
+      public Adapter caseAvailability(Availability object)
+      {
+        return createAvailabilityAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -253,6 +268,51 @@ public class WarehouseModellingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createManagerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.warehouse.warehouseModelling.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.warehouse.warehouseModelling.Task
+   * @generated
+   */
+  public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment <em>Task Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.warehouse.warehouseModelling.TaskAssignment
+   * @generated
+   */
+  public Adapter createTaskAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.warehouse.warehouseModelling.Availability <em>Availability</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.warehouse.warehouseModelling.Availability
+   * @generated
+   */
+  public Adapter createAvailabilityAdapter()
   {
     return null;
   }

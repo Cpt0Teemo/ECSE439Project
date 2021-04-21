@@ -3,14 +3,24 @@
  */
 package org.xtext.example.warehouse.warehouseModelling.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.example.warehouse.warehouseModelling.Person;
+import org.xtext.example.warehouse.warehouseModelling.Role;
 import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
 
 /**
@@ -22,6 +32,7 @@ import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.PersonImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.PersonImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +58,16 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRoles()
+   * @generated
+   * @ordered
+   */
+  protected EList<Role> roles;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +121,45 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person
    * @generated
    */
   @Override
+  public EList<Role> getRoles()
+  {
+    if (roles == null)
+    {
+      roles = new EObjectContainmentEList<Role>(Role.class, this, WarehouseModellingPackage.PERSON__ROLES);
+    }
+    return roles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.PERSON__ROLES:
+        return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case WarehouseModellingPackage.PERSON__NAME:
         return getName();
+      case WarehouseModellingPackage.PERSON__ROLES:
+        return getRoles();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,6 +169,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -122,6 +177,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person
     {
       case WarehouseModellingPackage.PERSON__NAME:
         setName((String)newValue);
+        return;
+      case WarehouseModellingPackage.PERSON__ROLES:
+        getRoles().clear();
+        getRoles().addAll((Collection<? extends Role>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +199,9 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person
       case WarehouseModellingPackage.PERSON__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case WarehouseModellingPackage.PERSON__ROLES:
+        getRoles().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +218,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person
     {
       case WarehouseModellingPackage.PERSON__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case WarehouseModellingPackage.PERSON__ROLES:
+        return roles != null && !roles.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -132,13 +132,22 @@ public interface WarehouseModellingPackage extends EPackage
   int COMPANY__TEAMS = 3;
 
   /**
+   * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPANY__TASKS = 4;
+
+  /**
    * The number of structural features of the '<em>Company</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPANY_FEATURE_COUNT = 4;
+  int COMPANY_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.WarehouseImpl <em>Warehouse</em>}' class.
@@ -188,13 +197,13 @@ public interface WarehouseModellingPackage extends EPackage
   int TEAM = 3;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEAM__ID = 0;
+  int TEAM__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Team</em>' class.
@@ -225,13 +234,22 @@ public interface WarehouseModellingPackage extends EPackage
   int PERSON__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON__ROLES = 1;
+
+  /**
    * The number of structural features of the '<em>Person</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_FEATURE_COUNT = 1;
+  int PERSON_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.RoleImpl <em>Role</em>}' class.
@@ -244,13 +262,22 @@ public interface WarehouseModellingPackage extends EPackage
   int ROLE = 5;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE__ID = 0;
+
+  /**
    * The feature id for the '<em><b>Start Date</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROLE__START_DATE = 0;
+  int ROLE__START_DATE = 1;
 
   /**
    * The feature id for the '<em><b>End Date</b></em>' attribute.
@@ -259,7 +286,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROLE__END_DATE = 1;
+  int ROLE__END_DATE = 2;
 
   /**
    * The number of structural features of the '<em>Role</em>' class.
@@ -268,7 +295,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROLE_FEATURE_COUNT = 2;
+  int ROLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.EmployeeImpl <em>Employee</em>}' class.
@@ -279,6 +306,15 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    */
   int EMPLOYEE = 6;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMPLOYEE__ID = ROLE__ID;
 
   /**
    * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -299,13 +335,22 @@ public interface WarehouseModellingPackage extends EPackage
   int EMPLOYEE__END_DATE = ROLE__END_DATE;
 
   /**
+   * The feature id for the '<em><b>Availabilities</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMPLOYEE__AVAILABILITIES = ROLE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Employee</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMPLOYEE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 0;
+  int EMPLOYEE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.ManagerImpl <em>Manager</em>}' class.
@@ -316,6 +361,15 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    */
   int MANAGER = 7;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANAGER__ID = ROLE__ID;
 
   /**
    * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -336,13 +390,151 @@ public interface WarehouseModellingPackage extends EPackage
   int MANAGER__END_DATE = ROLE__END_DATE;
 
   /**
+   * The feature id for the '<em><b>Manages</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANAGER__MANAGES = ROLE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Manager</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MANAGER_FEATURE_COUNT = ROLE_FEATURE_COUNT + 0;
+  int MANAGER_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.TaskImpl <em>Task</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.warehouse.warehouseModelling.impl.TaskImpl
+   * @see org.xtext.example.warehouse.warehouseModelling.impl.WarehouseModellingPackageImpl#getTask()
+   * @generated
+   */
+  int TASK = 8;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Assignment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK__ASSIGNMENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Task</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.TaskAssignmentImpl <em>Task Assignment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.warehouse.warehouseModelling.impl.TaskAssignmentImpl
+   * @see org.xtext.example.warehouse.warehouseModelling.impl.WarehouseModellingPackageImpl#getTaskAssignment()
+   * @generated
+   */
+  int TASK_ASSIGNMENT = 9;
+
+  /**
+   * The feature id for the '<em><b>Role</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_ASSIGNMENT__ROLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Availability</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_ASSIGNMENT__AVAILABILITY = 1;
+
+  /**
+   * The feature id for the '<em><b>Is Done</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_ASSIGNMENT__IS_DONE = 2;
+
+  /**
+   * The number of structural features of the '<em>Task Assignment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_ASSIGNMENT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.AvailabilityImpl <em>Availability</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.warehouse.warehouseModelling.impl.AvailabilityImpl
+   * @see org.xtext.example.warehouse.warehouseModelling.impl.WarehouseModellingPackageImpl#getAvailability()
+   * @generated
+   */
+  int AVAILABILITY = 10;
+
+  /**
+   * The feature id for the '<em><b>Start Time</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AVAILABILITY__START_TIME = 0;
+
+  /**
+   * The feature id for the '<em><b>End Time</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AVAILABILITY__END_TIME = 1;
+
+  /**
+   * The number of structural features of the '<em>Availability</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AVAILABILITY_FEATURE_COUNT = 2;
 
 
   /**
@@ -421,6 +613,17 @@ public interface WarehouseModellingPackage extends EPackage
   EReference getCompany_Teams();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.warehouse.warehouseModelling.Company#getTasks <em>Tasks</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tasks</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Company#getTasks()
+   * @see #getCompany()
+   * @generated
+   */
+  EReference getCompany_Tasks();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.Warehouse <em>Warehouse</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -463,15 +666,15 @@ public interface WarehouseModellingPackage extends EPackage
   EClass getTeam();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Team#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Team#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.xtext.example.warehouse.warehouseModelling.Team#getId()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Team#getName()
    * @see #getTeam()
    * @generated
    */
-  EAttribute getTeam_Id();
+  EAttribute getTeam_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.Person <em>Person</em>}'.
@@ -495,6 +698,17 @@ public interface WarehouseModellingPackage extends EPackage
   EAttribute getPerson_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.warehouse.warehouseModelling.Person#getRoles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Roles</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Person#getRoles()
+   * @see #getPerson()
+   * @generated
+   */
+  EReference getPerson_Roles();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.Role <em>Role</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -503,6 +717,17 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    */
   EClass getRole();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Role#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Role#getId()
+   * @see #getRole()
+   * @generated
+   */
+  EAttribute getRole_Id();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Role#getStartDate <em>Start Date</em>}'.
@@ -537,6 +762,17 @@ public interface WarehouseModellingPackage extends EPackage
   EClass getEmployee();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.warehouse.warehouseModelling.Employee#getAvailabilities <em>Availabilities</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Availabilities</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Employee#getAvailabilities()
+   * @see #getEmployee()
+   * @generated
+   */
+  EReference getEmployee_Availabilities();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.Manager <em>Manager</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -545,6 +781,135 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    */
   EClass getManager();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.warehouse.warehouseModelling.Manager#getManages <em>Manages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Manages</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Manager#getManages()
+   * @see #getManager()
+   * @generated
+   */
+  EReference getManager_Manages();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Task</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Task
+   * @generated
+   */
+  EClass getTask();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Task#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Task#getId()
+   * @see #getTask()
+   * @generated
+   */
+  EAttribute getTask_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Task#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Task#getDescription()
+   * @see #getTask()
+   * @generated
+   */
+  EAttribute getTask_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Task#isAssignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Assignment</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Task#isAssignment()
+   * @see #getTask()
+   * @generated
+   */
+  EAttribute getTask_Assignment();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment <em>Task Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Task Assignment</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.TaskAssignment
+   * @generated
+   */
+  EClass getTaskAssignment();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getRole <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Role</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getRole()
+   * @see #getTaskAssignment()
+   * @generated
+   */
+  EReference getTaskAssignment_Role();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getAvailability <em>Availability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Availability</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getAvailability()
+   * @see #getTaskAssignment()
+   * @generated
+   */
+  EReference getTaskAssignment_Availability();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment#isIsDone <em>Is Done</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Done</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.TaskAssignment#isIsDone()
+   * @see #getTaskAssignment()
+   * @generated
+   */
+  EAttribute getTaskAssignment_IsDone();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.Availability <em>Availability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Availability</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Availability
+   * @generated
+   */
+  EClass getAvailability();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Availability#getStartTime <em>Start Time</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Start Time</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Availability#getStartTime()
+   * @see #getAvailability()
+   * @generated
+   */
+  EAttribute getAvailability_StartTime();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Availability#getEndTime <em>End Time</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>End Time</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Availability#getEndTime()
+   * @see #getAvailability()
+   * @generated
+   */
+  EAttribute getAvailability_EndTime();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -630,6 +995,14 @@ public interface WarehouseModellingPackage extends EPackage
     EReference COMPANY__TEAMS = eINSTANCE.getCompany_Teams();
 
     /**
+     * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPANY__TASKS = eINSTANCE.getCompany_Tasks();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.WarehouseImpl <em>Warehouse</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -666,12 +1039,12 @@ public interface WarehouseModellingPackage extends EPackage
     EClass TEAM = eINSTANCE.getTeam();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TEAM__ID = eINSTANCE.getTeam_Id();
+    EAttribute TEAM__NAME = eINSTANCE.getTeam_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.PersonImpl <em>Person</em>}' class.
@@ -692,6 +1065,14 @@ public interface WarehouseModellingPackage extends EPackage
     EAttribute PERSON__NAME = eINSTANCE.getPerson_Name();
 
     /**
+     * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSON__ROLES = eINSTANCE.getPerson_Roles();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.RoleImpl <em>Role</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -700,6 +1081,14 @@ public interface WarehouseModellingPackage extends EPackage
      * @generated
      */
     EClass ROLE = eINSTANCE.getRole();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLE__ID = eINSTANCE.getRole_Id();
 
     /**
      * The meta object literal for the '<em><b>Start Date</b></em>' attribute feature.
@@ -728,6 +1117,14 @@ public interface WarehouseModellingPackage extends EPackage
     EClass EMPLOYEE = eINSTANCE.getEmployee();
 
     /**
+     * The meta object literal for the '<em><b>Availabilities</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMPLOYEE__AVAILABILITIES = eINSTANCE.getEmployee_Availabilities();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.ManagerImpl <em>Manager</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -736,6 +1133,108 @@ public interface WarehouseModellingPackage extends EPackage
      * @generated
      */
     EClass MANAGER = eINSTANCE.getManager();
+
+    /**
+     * The meta object literal for the '<em><b>Manages</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MANAGER__MANAGES = eINSTANCE.getManager_Manages();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.TaskImpl <em>Task</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.warehouse.warehouseModelling.impl.TaskImpl
+     * @see org.xtext.example.warehouse.warehouseModelling.impl.WarehouseModellingPackageImpl#getTask()
+     * @generated
+     */
+    EClass TASK = eINSTANCE.getTask();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TASK__ID = eINSTANCE.getTask_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TASK__DESCRIPTION = eINSTANCE.getTask_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Assignment</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TASK__ASSIGNMENT = eINSTANCE.getTask_Assignment();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.TaskAssignmentImpl <em>Task Assignment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.warehouse.warehouseModelling.impl.TaskAssignmentImpl
+     * @see org.xtext.example.warehouse.warehouseModelling.impl.WarehouseModellingPackageImpl#getTaskAssignment()
+     * @generated
+     */
+    EClass TASK_ASSIGNMENT = eINSTANCE.getTaskAssignment();
+
+    /**
+     * The meta object literal for the '<em><b>Role</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TASK_ASSIGNMENT__ROLE = eINSTANCE.getTaskAssignment_Role();
+
+    /**
+     * The meta object literal for the '<em><b>Availability</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TASK_ASSIGNMENT__AVAILABILITY = eINSTANCE.getTaskAssignment_Availability();
+
+    /**
+     * The meta object literal for the '<em><b>Is Done</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TASK_ASSIGNMENT__IS_DONE = eINSTANCE.getTaskAssignment_IsDone();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.AvailabilityImpl <em>Availability</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.warehouse.warehouseModelling.impl.AvailabilityImpl
+     * @see org.xtext.example.warehouse.warehouseModelling.impl.WarehouseModellingPackageImpl#getAvailability()
+     * @generated
+     */
+    EClass AVAILABILITY = eINSTANCE.getAvailability();
+
+    /**
+     * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AVAILABILITY__START_TIME = eINSTANCE.getAvailability_StartTime();
+
+    /**
+     * The meta object literal for the '<em><b>End Time</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AVAILABILITY__END_TIME = eINSTANCE.getAvailability_EndTime();
 
   }
 

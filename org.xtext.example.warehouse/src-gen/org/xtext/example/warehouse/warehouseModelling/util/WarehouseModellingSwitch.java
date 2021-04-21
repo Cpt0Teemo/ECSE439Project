@@ -131,6 +131,27 @@ public class WarehouseModellingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case WarehouseModellingPackage.TASK:
+      {
+        Task task = (Task)theEObject;
+        T result = caseTask(task);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WarehouseModellingPackage.TASK_ASSIGNMENT:
+      {
+        TaskAssignment taskAssignment = (TaskAssignment)theEObject;
+        T result = caseTaskAssignment(taskAssignment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WarehouseModellingPackage.AVAILABILITY:
+      {
+        Availability availability = (Availability)theEObject;
+        T result = caseAvailability(availability);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -259,6 +280,54 @@ public class WarehouseModellingSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseManager(Manager object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTask(Task object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task Assignment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTaskAssignment(TaskAssignment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Availability</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Availability</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAvailability(Availability object)
   {
     return null;
   }

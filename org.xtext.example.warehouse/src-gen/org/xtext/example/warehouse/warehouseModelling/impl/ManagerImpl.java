@@ -3,20 +3,42 @@
  */
 package org.xtext.example.warehouse.warehouseModelling.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.warehouse.warehouseModelling.Manager;
+import org.xtext.example.warehouse.warehouseModelling.Team;
 import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Manager</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.ManagerImpl#getManages <em>Manages</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ManagerImpl extends RoleImpl implements Manager
 {
+  /**
+   * The cached value of the '{@link #getManages() <em>Manages</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getManages()
+   * @generated
+   * @ordered
+   */
+  protected Team manages;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +58,118 @@ public class ManagerImpl extends RoleImpl implements Manager
   protected EClass eStaticClass()
   {
     return WarehouseModellingPackage.Literals.MANAGER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Team getManages()
+  {
+    if (manages != null && manages.eIsProxy())
+    {
+      InternalEObject oldManages = (InternalEObject)manages;
+      manages = (Team)eResolveProxy(oldManages);
+      if (manages != oldManages)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, WarehouseModellingPackage.MANAGER__MANAGES, oldManages, manages));
+      }
+    }
+    return manages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Team basicGetManages()
+  {
+    return manages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setManages(Team newManages)
+  {
+    Team oldManages = manages;
+    manages = newManages;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WarehouseModellingPackage.MANAGER__MANAGES, oldManages, manages));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.MANAGER__MANAGES:
+        if (resolve) return getManages();
+        return basicGetManages();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.MANAGER__MANAGES:
+        setManages((Team)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.MANAGER__MANAGES:
+        setManages((Team)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case WarehouseModellingPackage.MANAGER__MANAGES:
+        return manages != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ManagerImpl
