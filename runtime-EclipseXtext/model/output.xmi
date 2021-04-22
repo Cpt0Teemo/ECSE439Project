@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<wH:WarehouseManagement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wH="http://www.xtext.org/example/wh/WH">
+  <companies name="Amazon" address="This is an address">
+    <warehouses name="w5">
+      <workers name="p1">
+        <roles xsi:type="wH:Employee" employeeId="e1" startDate="stardate" endDate="enddate">
+          <availabilities id="av1" startTime="before" endTime="stillBefore"/>
+        </roles>
+        <roles xsi:type="wH:Manager" employeeId="m1" startDate="lastWeek" endDate="today" manages="//@companies.0/@teams.0"/>
+      </workers>
+      <workers name="p2">
+        <roles xsi:type="wH:Employee" employeeId="e2" startDate="lastWeek" endDate="today">
+          <availabilities id="av2" startTime="lastWeek" endTime="today"/>
+        </roles>
+      </workers>
+    </warehouses>
+    <teams name="TeamB1"/>
+    <tasks id="t1" description="this is a random task"/>
+  </companies>
+</wH:WarehouseManagement>

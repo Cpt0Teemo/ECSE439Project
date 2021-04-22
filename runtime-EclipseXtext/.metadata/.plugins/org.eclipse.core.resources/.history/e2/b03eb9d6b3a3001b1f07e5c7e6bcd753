@@ -1,0 +1,10 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.xtext.org/example/wh/WH')]
+
+
+[template public generateElement(anAvailability : Availability)]
+[comment @main/]
+[file (('some.java'), false, 'UTF-8')]
+
+[/file]
+[/template]

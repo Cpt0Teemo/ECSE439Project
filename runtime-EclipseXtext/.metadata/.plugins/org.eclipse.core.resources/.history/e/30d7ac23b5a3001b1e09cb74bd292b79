@@ -1,0 +1,18 @@
+Company Amazon 'This is an address'
+Warehouses:
+	Warehouse w5 {
+		Person p1 with roles [ 
+			Employee e1 'stardate' 'enddate' available for 
+				Availability av1 from 'before' to 'stillBefore',
+			Manager m1 'lastWeek' 'today' of team TeamB1
+		]
+		Person p2 with roles [
+			Employee e2 'lastWeek' 'today' available for
+				Availability av2 from 'lastWeek' to 'today'
+		]
+	}
+Teams:
+	Team TeamB1
+Tasks:
+	Task t1 'this is a random task'
+	Assignment a2 to e1 during av1

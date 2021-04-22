@@ -1,0 +1,57 @@
+grammar org.xtext.example.wh.WH with org.eclipse.xtext.common.Terminals
+
+generate wH "http://www.xtext.org/example/wh/WH"
+
+WarehouseManagement:
+	(companies+=Company)*
+	
+;
+
+Company:
+	'Company' name=ID address=STRING
+	'Warehouses:'
+	(warehouses+=Warehouse)*
+	'Teams:'
+	(teams+=Team)*
+	'Tasks:'
+	(tasks+=Task)*
+;
+
+Warehouse:
+	'Warehouse' name=ID '{'
+		(workers+=Person)*
+	'}'
+;
+
+Team:
+	'Team' name=ID
+;
+
+Person:
+	'Person' name=ID 'with' 'roles' '[' (roles+=Role) (',' (roles+=Role))* ']'
+;
+
+Role:
+	Employee | Manager
+;
+
+Employee:
+	'Employee' employeeId=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))* 
+;
+
+Manager:
+	'Manager' employeeId=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
+;
+
+Task:
+	'Task' id=ID description=STRING
+	(assignment=TaskAssignment)?
+;
+
+TaskAssignment:
+	'Assignment' id=ID 'to' role=[Role] 'during' availability=[Availability] (isDone?='Completed')?
+;
+
+Availability:
+	'Availability' id=ID 'from' startTime=STRING 'to' endTime=STRING
+;

@@ -12,19 +12,19 @@ import com.google.inject.Injector;
 public class Main {
 
 	public static void main(String[] args) {
-		exportXMI("/Users/yoanpolumarck/Documents/repo/runtime-EclipseXtext/tt");
+		exportXMI("/Users/jamieli/runtime-EclipseXtext/model");
 
 	}
 	
 	private static void exportXMI(String absuloteTargetFolderPath) {
 	    // change MyLanguage with your language name
-	    Injector injector = new WarehouseModellingStandaloneSetup()
+	    Injector injector = new ()
 	            .createInjectorAndDoEMFRegistration();
 	    XtextResourceSet resourceSet = injector
 	            .getInstance(XtextResourceSet.class);
 
 	    // .ext ist the extension of the model file
-	    String inputURI = "file:///" + absuloteTargetFolderPath + "/testing.warehouse";
+	    String inputURI = "file:///" + absuloteTargetFolderPath + "/model.wh";
 	    String outputURI = "file:///" + absuloteTargetFolderPath + "/output.xmi";
 	    URI uri = URI.createURI(inputURI);	
 	    Resource xtextResource = resourceSet.getResource(uri, true);
