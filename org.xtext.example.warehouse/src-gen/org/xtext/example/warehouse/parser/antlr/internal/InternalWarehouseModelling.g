@@ -136,9 +136,9 @@ ruleCompany returns [EObject current=null]
 		)
 		(
 			(
-				lv_address_2_0=RULE_ID
+				lv_address_2_0=RULE_STRING
 				{
-					newLeafNode(lv_address_2_0, grammarAccess.getCompanyAccess().getAddressIDTerminalRuleCall_2_0());
+					newLeafNode(lv_address_2_0, grammarAccess.getCompanyAccess().getAddressSTRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -148,7 +148,7 @@ ruleCompany returns [EObject current=null]
 						$current,
 						"address",
 						lv_address_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -492,9 +492,9 @@ ruleEmployee returns [EObject current=null]
 		}
 		(
 			(
-				lv_id_1_0=RULE_ID
+				lv_employeeId_1_0=RULE_ID
 				{
-					newLeafNode(lv_id_1_0, grammarAccess.getEmployeeAccess().getIdIDTerminalRuleCall_1_0());
+					newLeafNode(lv_employeeId_1_0, grammarAccess.getEmployeeAccess().getEmployeeIdIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -502,8 +502,8 @@ ruleEmployee returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"id",
-						lv_id_1_0,
+						"employeeId",
+						lv_employeeId_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -621,9 +621,9 @@ ruleManager returns [EObject current=null]
 		}
 		(
 			(
-				lv_id_1_0=RULE_ID
+				lv_employeeId_1_0=RULE_ID
 				{
-					newLeafNode(lv_id_1_0, grammarAccess.getManagerAccess().getIdIDTerminalRuleCall_1_0());
+					newLeafNode(lv_employeeId_1_0, grammarAccess.getManagerAccess().getEmployeeIdIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -631,8 +631,8 @@ ruleManager returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"id",
-						lv_id_1_0,
+						"employeeId",
+						lv_employeeId_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -766,12 +766,12 @@ ruleTask returns [EObject current=null]
 					set(
 						$current,
 						"assignment",
-						lv_assignment_3_0 != null,
+						lv_assignment_3_0,
 						"org.xtext.example.warehouse.WarehouseModelling.TaskAssignment");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 	)
 ;
 
@@ -791,13 +791,31 @@ ruleTaskAssignment returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='TaskAssignment'
+		otherlv_0='Assignment'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getTaskAssignmentAccess().getTaskAssignmentKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getTaskAssignmentAccess().getAssignmentKeyword_0());
 		}
-		otherlv_1='by'
+		(
+			(
+				lv_id_1_0=RULE_ID
+				{
+					newLeafNode(lv_id_1_0, grammarAccess.getTaskAssignmentAccess().getIdIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTaskAssignmentRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"id",
+						lv_id_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='to'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getTaskAssignmentAccess().getByKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getTaskAssignmentAccess().getToKeyword_2());
 		}
 		(
 			(
@@ -806,15 +824,15 @@ ruleTaskAssignment returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getTaskAssignmentRule());
 					}
 				}
-				otherlv_2=RULE_ID
+				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getTaskAssignmentAccess().getRoleRoleCrossReference_2_0());
+					newLeafNode(otherlv_3, grammarAccess.getTaskAssignmentAccess().getRoleRoleCrossReference_3_0());
 				}
 			)
 		)
-		otherlv_3='during'
+		otherlv_4='during'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getTaskAssignmentAccess().getDuringKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getTaskAssignmentAccess().getDuringKeyword_4());
 		}
 		(
 			(
@@ -823,26 +841,26 @@ ruleTaskAssignment returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getTaskAssignmentRule());
 					}
 				}
-				otherlv_4=RULE_ID
+				otherlv_5=RULE_ID
 				{
-					newLeafNode(otherlv_4, grammarAccess.getTaskAssignmentAccess().getAvailabilityAvailabilityCrossReference_4_0());
+					newLeafNode(otherlv_5, grammarAccess.getTaskAssignmentAccess().getAvailabilityAvailabilityCrossReference_5_0());
 				}
 			)
 		)
 		(
 			(
-				lv_isDone_5_0='Completed'
+				lv_isDone_6_0='Completed'
 				{
-					newLeafNode(lv_isDone_5_0, grammarAccess.getTaskAssignmentAccess().getIsDoneCompletedKeyword_5_0());
+					newLeafNode(lv_isDone_6_0, grammarAccess.getTaskAssignmentAccess().getIsDoneCompletedKeyword_6_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getTaskAssignmentRule());
 					}
-					setWithLastConsumed($current, "isDone", lv_isDone_5_0 != null, "Completed");
+					setWithLastConsumed($current, "isDone", lv_isDone_6_0 != null, "Completed");
 				}
 			)
-		)
+		)?
 	)
 ;
 
@@ -866,15 +884,33 @@ ruleAvailability returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getAvailabilityAccess().getAvailabilityKeyword_0());
 		}
-		otherlv_1='from'
+		(
+			(
+				lv_id_1_0=RULE_ID
+				{
+					newLeafNode(lv_id_1_0, grammarAccess.getAvailabilityAccess().getIdIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAvailabilityRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"id",
+						lv_id_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='from'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAvailabilityAccess().getFromKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getAvailabilityAccess().getFromKeyword_2());
 		}
 		(
 			(
-				lv_startTime_2_0=RULE_ID
+				lv_startTime_3_0=RULE_STRING
 				{
-					newLeafNode(lv_startTime_2_0, grammarAccess.getAvailabilityAccess().getStartTimeIDTerminalRuleCall_2_0());
+					newLeafNode(lv_startTime_3_0, grammarAccess.getAvailabilityAccess().getStartTimeSTRINGTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -883,20 +919,20 @@ ruleAvailability returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"startTime",
-						lv_startTime_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						lv_startTime_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		otherlv_3='to'
+		otherlv_4='to'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getAvailabilityAccess().getToKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getAvailabilityAccess().getToKeyword_4());
 		}
 		(
 			(
-				lv_endTime_4_0=RULE_ID
+				lv_endTime_5_0=RULE_STRING
 				{
-					newLeafNode(lv_endTime_4_0, grammarAccess.getAvailabilityAccess().getEndTimeIDTerminalRuleCall_4_0());
+					newLeafNode(lv_endTime_5_0, grammarAccess.getAvailabilityAccess().getEndTimeSTRINGTerminalRuleCall_5_0());
 				}
 				{
 					if ($current==null) {
@@ -905,8 +941,8 @@ ruleAvailability returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"endTime",
-						lv_endTime_4_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						lv_endTime_5_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

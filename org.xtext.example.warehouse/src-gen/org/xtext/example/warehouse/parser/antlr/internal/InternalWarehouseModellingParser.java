@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalWarehouseModellingParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Company'", "'Warehouses:'", "'Teams:'", "'Tasks:'", "'Warehouse'", "'{'", "'}'", "'Team'", "'Person'", "'with'", "'roles'", "'['", "','", "']'", "'Employee'", "'available'", "'for'", "'Manager'", "'of'", "'team'", "'Task'", "'TaskAssignment'", "'by'", "'during'", "'Completed'", "'Availability'", "'from'", "'to'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Company'", "'Warehouses:'", "'Teams:'", "'Tasks:'", "'Warehouse'", "'{'", "'}'", "'Team'", "'Person'", "'with'", "'roles'", "'['", "','", "']'", "'Employee'", "'available'", "'for'", "'Manager'", "'of'", "'team'", "'Task'", "'Assignment'", "'to'", "'during'", "'Completed'", "'Availability'", "'from'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -29,7 +29,6 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
     public static final int T__15=15;
     public static final int T__37=37;
     public static final int T__16=16;
-    public static final int T__38=38;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
@@ -255,7 +254,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleCompany"
-    // InternalWarehouseModelling.g:107:1: ruleCompany returns [EObject current=null] : (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_ID ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* ) ;
+    // InternalWarehouseModelling.g:107:1: ruleCompany returns [EObject current=null] : (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_STRING ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* ) ;
     public final EObject ruleCompany() throws RecognitionException {
         EObject current = null;
 
@@ -276,11 +275,11 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
         	enterRule();
 
         try {
-            // InternalWarehouseModelling.g:113:2: ( (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_ID ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* ) )
-            // InternalWarehouseModelling.g:114:2: (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_ID ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* )
+            // InternalWarehouseModelling.g:113:2: ( (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_STRING ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* ) )
+            // InternalWarehouseModelling.g:114:2: (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_STRING ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* )
             {
-            // InternalWarehouseModelling.g:114:2: (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_ID ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* )
-            // InternalWarehouseModelling.g:115:3: otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_ID ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )*
+            // InternalWarehouseModelling.g:114:2: (otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_STRING ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )* )
+            // InternalWarehouseModelling.g:115:3: otherlv_0= 'Company' ( (lv_name_1_0= RULE_ID ) ) ( (lv_address_2_0= RULE_STRING ) ) otherlv_3= 'Warehouses:' ( (lv_warehouses_4_0= ruleWarehouse ) )* otherlv_5= 'Teams:' ( (lv_teams_6_0= ruleTeam ) )* otherlv_7= 'Tasks:' ( (lv_tasks_8_0= ruleTask ) )*
             {
             otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
@@ -292,7 +291,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             // InternalWarehouseModelling.g:120:4: (lv_name_1_0= RULE_ID )
             // InternalWarehouseModelling.g:121:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_4); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getCompanyAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -312,15 +311,15 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            // InternalWarehouseModelling.g:137:3: ( (lv_address_2_0= RULE_ID ) )
-            // InternalWarehouseModelling.g:138:4: (lv_address_2_0= RULE_ID )
+            // InternalWarehouseModelling.g:137:3: ( (lv_address_2_0= RULE_STRING ) )
+            // InternalWarehouseModelling.g:138:4: (lv_address_2_0= RULE_STRING )
             {
-            // InternalWarehouseModelling.g:138:4: (lv_address_2_0= RULE_ID )
-            // InternalWarehouseModelling.g:139:5: lv_address_2_0= RULE_ID
+            // InternalWarehouseModelling.g:138:4: (lv_address_2_0= RULE_STRING )
+            // InternalWarehouseModelling.g:139:5: lv_address_2_0= RULE_STRING
             {
-            lv_address_2_0=(Token)match(input,RULE_ID,FOLLOW_5); 
+            lv_address_2_0=(Token)match(input,RULE_STRING,FOLLOW_6); 
 
-            					newLeafNode(lv_address_2_0, grammarAccess.getCompanyAccess().getAddressIDTerminalRuleCall_2_0());
+            					newLeafNode(lv_address_2_0, grammarAccess.getCompanyAccess().getAddressSTRINGTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
@@ -330,7 +329,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             						current,
             						"address",
             						lv_address_2_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -338,7 +337,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_3=(Token)match(input,12,FOLLOW_6); 
+            otherlv_3=(Token)match(input,12,FOLLOW_7); 
 
             			newLeafNode(otherlv_3, grammarAccess.getCompanyAccess().getWarehousesKeyword_3());
             		
@@ -363,7 +362,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             	    					newCompositeNode(grammarAccess.getCompanyAccess().getWarehousesWarehouseParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_6);
+            	    pushFollow(FOLLOW_7);
             	    lv_warehouses_4_0=ruleWarehouse();
 
             	    state._fsp--;
@@ -391,7 +390,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FOLLOW_7); 
+            otherlv_5=(Token)match(input,13,FOLLOW_8); 
 
             			newLeafNode(otherlv_5, grammarAccess.getCompanyAccess().getTeamsKeyword_5());
             		
@@ -416,7 +415,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             	    					newCompositeNode(grammarAccess.getCompanyAccess().getTeamsTeamParserRuleCall_6_0());
             	    				
-            	    pushFollow(FOLLOW_7);
+            	    pushFollow(FOLLOW_8);
             	    lv_teams_6_0=ruleTeam();
 
             	    state._fsp--;
@@ -444,7 +443,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,14,FOLLOW_8); 
+            otherlv_7=(Token)match(input,14,FOLLOW_9); 
 
             			newLeafNode(otherlv_7, grammarAccess.getCompanyAccess().getTasksKeyword_7());
             		
@@ -469,7 +468,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             	    					newCompositeNode(grammarAccess.getCompanyAccess().getTasksTaskParserRuleCall_8_0());
             	    				
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_9);
             	    lv_tasks_8_0=ruleTask();
 
             	    state._fsp--;
@@ -587,7 +586,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             // InternalWarehouseModelling.g:248:4: (lv_name_1_0= RULE_ID )
             // InternalWarehouseModelling.g:249:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getWarehouseAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -607,7 +606,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_10); 
+            otherlv_2=(Token)match(input,16,FOLLOW_11); 
 
             			newLeafNode(otherlv_2, grammarAccess.getWarehouseAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -632,7 +631,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             	    					newCompositeNode(grammarAccess.getWarehouseAccess().getWorkersPersonParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_11);
             	    lv_workers_3_0=rulePerson();
 
             	    state._fsp--;
@@ -865,7 +864,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             // InternalWarehouseModelling.g:357:4: (lv_name_1_0= RULE_ID )
             // InternalWarehouseModelling.g:358:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_11); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getPersonAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -885,15 +884,15 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_12); 
+            otherlv_2=(Token)match(input,20,FOLLOW_13); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonAccess().getWithKeyword_2());
             		
-            otherlv_3=(Token)match(input,21,FOLLOW_13); 
+            otherlv_3=(Token)match(input,21,FOLLOW_14); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPersonAccess().getRolesKeyword_3());
             		
-            otherlv_4=(Token)match(input,22,FOLLOW_14); 
+            otherlv_4=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_4, grammarAccess.getPersonAccess().getLeftSquareBracketKeyword_4());
             		
@@ -906,7 +905,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             					newCompositeNode(grammarAccess.getPersonAccess().getRolesRoleParserRuleCall_5_0());
             				
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             lv_roles_5_0=ruleRole();
 
             state._fsp--;
@@ -943,7 +942,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             	case 1 :
             	    // InternalWarehouseModelling.g:406:4: otherlv_6= ',' ( (lv_roles_7_0= ruleRole ) )
             	    {
-            	    otherlv_6=(Token)match(input,23,FOLLOW_14); 
+            	    otherlv_6=(Token)match(input,23,FOLLOW_15); 
 
             	    				newLeafNode(otherlv_6, grammarAccess.getPersonAccess().getCommaKeyword_6_0());
             	    			
@@ -956,7 +955,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             	    						newCompositeNode(grammarAccess.getPersonAccess().getRolesRoleParserRuleCall_6_1_0());
             	    					
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_16);
             	    lv_roles_7_0=ruleRole();
 
             	    state._fsp--;
@@ -1178,12 +1177,12 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleEmployee"
-    // InternalWarehouseModelling.g:481:1: ruleEmployee returns [EObject current=null] : (otherlv_0= 'Employee' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* ) ;
+    // InternalWarehouseModelling.g:481:1: ruleEmployee returns [EObject current=null] : (otherlv_0= 'Employee' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* ) ;
     public final EObject ruleEmployee() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_id_1_0=null;
+        Token lv_employeeId_1_0=null;
         Token lv_startDate_2_0=null;
         Token lv_endDate_3_0=null;
         Token otherlv_4=null;
@@ -1198,25 +1197,25 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
         	enterRule();
 
         try {
-            // InternalWarehouseModelling.g:487:2: ( (otherlv_0= 'Employee' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* ) )
-            // InternalWarehouseModelling.g:488:2: (otherlv_0= 'Employee' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* )
+            // InternalWarehouseModelling.g:487:2: ( (otherlv_0= 'Employee' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* ) )
+            // InternalWarehouseModelling.g:488:2: (otherlv_0= 'Employee' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* )
             {
-            // InternalWarehouseModelling.g:488:2: (otherlv_0= 'Employee' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* )
-            // InternalWarehouseModelling.g:489:3: otherlv_0= 'Employee' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )*
+            // InternalWarehouseModelling.g:488:2: (otherlv_0= 'Employee' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )* )
+            // InternalWarehouseModelling.g:489:3: otherlv_0= 'Employee' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'available' otherlv_5= 'for' ( (lv_availabilities_6_0= ruleAvailability ) ) (otherlv_7= ',' ( (lv_availabilities_8_0= ruleAvailability ) ) )*
             {
             otherlv_0=(Token)match(input,25,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEmployeeAccess().getEmployeeKeyword_0());
             		
-            // InternalWarehouseModelling.g:493:3: ( (lv_id_1_0= RULE_ID ) )
-            // InternalWarehouseModelling.g:494:4: (lv_id_1_0= RULE_ID )
+            // InternalWarehouseModelling.g:493:3: ( (lv_employeeId_1_0= RULE_ID ) )
+            // InternalWarehouseModelling.g:494:4: (lv_employeeId_1_0= RULE_ID )
             {
-            // InternalWarehouseModelling.g:494:4: (lv_id_1_0= RULE_ID )
-            // InternalWarehouseModelling.g:495:5: lv_id_1_0= RULE_ID
+            // InternalWarehouseModelling.g:494:4: (lv_employeeId_1_0= RULE_ID )
+            // InternalWarehouseModelling.g:495:5: lv_employeeId_1_0= RULE_ID
             {
-            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_16); 
+            lv_employeeId_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
-            					newLeafNode(lv_id_1_0, grammarAccess.getEmployeeAccess().getIdIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_employeeId_1_0, grammarAccess.getEmployeeAccess().getEmployeeIdIDTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -1224,8 +1223,8 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             					}
             					setWithLastConsumed(
             						current,
-            						"id",
-            						lv_id_1_0,
+            						"employeeId",
+            						lv_employeeId_1_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -1240,7 +1239,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             // InternalWarehouseModelling.g:512:4: (lv_startDate_2_0= RULE_STRING )
             // InternalWarehouseModelling.g:513:5: lv_startDate_2_0= RULE_STRING
             {
-            lv_startDate_2_0=(Token)match(input,RULE_STRING,FOLLOW_16); 
+            lv_startDate_2_0=(Token)match(input,RULE_STRING,FOLLOW_5); 
 
             					newLeafNode(lv_startDate_2_0, grammarAccess.getEmployeeAccess().getStartDateSTRINGTerminalRuleCall_2_0());
             				
@@ -1449,12 +1448,12 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleManager"
-    // InternalWarehouseModelling.g:610:1: ruleManager returns [EObject current=null] : (otherlv_0= 'Manager' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) ) ;
+    // InternalWarehouseModelling.g:610:1: ruleManager returns [EObject current=null] : (otherlv_0= 'Manager' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) ) ;
     public final EObject ruleManager() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_id_1_0=null;
+        Token lv_employeeId_1_0=null;
         Token lv_startDate_2_0=null;
         Token lv_endDate_3_0=null;
         Token otherlv_4=null;
@@ -1465,25 +1464,25 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
         	enterRule();
 
         try {
-            // InternalWarehouseModelling.g:616:2: ( (otherlv_0= 'Manager' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) ) )
-            // InternalWarehouseModelling.g:617:2: (otherlv_0= 'Manager' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) )
+            // InternalWarehouseModelling.g:616:2: ( (otherlv_0= 'Manager' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) ) )
+            // InternalWarehouseModelling.g:617:2: (otherlv_0= 'Manager' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) )
             {
-            // InternalWarehouseModelling.g:617:2: (otherlv_0= 'Manager' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) )
-            // InternalWarehouseModelling.g:618:3: otherlv_0= 'Manager' ( (lv_id_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) )
+            // InternalWarehouseModelling.g:617:2: (otherlv_0= 'Manager' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) ) )
+            // InternalWarehouseModelling.g:618:3: otherlv_0= 'Manager' ( (lv_employeeId_1_0= RULE_ID ) ) ( (lv_startDate_2_0= RULE_STRING ) ) ( (lv_endDate_3_0= RULE_STRING ) ) otherlv_4= 'of' otherlv_5= 'team' ( (otherlv_6= RULE_ID ) )
             {
             otherlv_0=(Token)match(input,28,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getManagerAccess().getManagerKeyword_0());
             		
-            // InternalWarehouseModelling.g:622:3: ( (lv_id_1_0= RULE_ID ) )
-            // InternalWarehouseModelling.g:623:4: (lv_id_1_0= RULE_ID )
+            // InternalWarehouseModelling.g:622:3: ( (lv_employeeId_1_0= RULE_ID ) )
+            // InternalWarehouseModelling.g:623:4: (lv_employeeId_1_0= RULE_ID )
             {
-            // InternalWarehouseModelling.g:623:4: (lv_id_1_0= RULE_ID )
-            // InternalWarehouseModelling.g:624:5: lv_id_1_0= RULE_ID
+            // InternalWarehouseModelling.g:623:4: (lv_employeeId_1_0= RULE_ID )
+            // InternalWarehouseModelling.g:624:5: lv_employeeId_1_0= RULE_ID
             {
-            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_16); 
+            lv_employeeId_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
-            					newLeafNode(lv_id_1_0, grammarAccess.getManagerAccess().getIdIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_employeeId_1_0, grammarAccess.getManagerAccess().getEmployeeIdIDTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -1491,8 +1490,8 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             					}
             					setWithLastConsumed(
             						current,
-            						"id",
-            						lv_id_1_0,
+            						"employeeId",
+            						lv_employeeId_1_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -1507,7 +1506,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             // InternalWarehouseModelling.g:641:4: (lv_startDate_2_0= RULE_STRING )
             // InternalWarehouseModelling.g:642:5: lv_startDate_2_0= RULE_STRING
             {
-            lv_startDate_2_0=(Token)match(input,RULE_STRING,FOLLOW_16); 
+            lv_startDate_2_0=(Token)match(input,RULE_STRING,FOLLOW_5); 
 
             					newLeafNode(lv_startDate_2_0, grammarAccess.getManagerAccess().getStartDateSTRINGTerminalRuleCall_2_0());
             				
@@ -1641,7 +1640,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleTask"
-    // InternalWarehouseModelling.g:708:1: ruleTask returns [EObject current=null] : (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) ) ) ;
+    // InternalWarehouseModelling.g:708:1: ruleTask returns [EObject current=null] : (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) )? ) ;
     public final EObject ruleTask() throws RecognitionException {
         EObject current = null;
 
@@ -1655,11 +1654,11 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
         	enterRule();
 
         try {
-            // InternalWarehouseModelling.g:714:2: ( (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) ) ) )
-            // InternalWarehouseModelling.g:715:2: (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) ) )
+            // InternalWarehouseModelling.g:714:2: ( (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) )? ) )
+            // InternalWarehouseModelling.g:715:2: (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) )? )
             {
-            // InternalWarehouseModelling.g:715:2: (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) ) )
-            // InternalWarehouseModelling.g:716:3: otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) )
+            // InternalWarehouseModelling.g:715:2: (otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) )? )
+            // InternalWarehouseModelling.g:716:3: otherlv_0= 'Task' ( (lv_id_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) ) ( (lv_assignment_3_0= ruleTaskAssignment ) )?
             {
             otherlv_0=(Token)match(input,31,FOLLOW_4); 
 
@@ -1671,7 +1670,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             // InternalWarehouseModelling.g:721:4: (lv_id_1_0= RULE_ID )
             // InternalWarehouseModelling.g:722:5: lv_id_1_0= RULE_ID
             {
-            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_16); 
+            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
             					newLeafNode(lv_id_1_0, grammarAccess.getTaskAccess().getIdIDTerminalRuleCall_1_0());
             				
@@ -1717,34 +1716,45 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            // InternalWarehouseModelling.g:756:3: ( (lv_assignment_3_0= ruleTaskAssignment ) )
-            // InternalWarehouseModelling.g:757:4: (lv_assignment_3_0= ruleTaskAssignment )
-            {
-            // InternalWarehouseModelling.g:757:4: (lv_assignment_3_0= ruleTaskAssignment )
-            // InternalWarehouseModelling.g:758:5: lv_assignment_3_0= ruleTaskAssignment
-            {
+            // InternalWarehouseModelling.g:756:3: ( (lv_assignment_3_0= ruleTaskAssignment ) )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            					newCompositeNode(grammarAccess.getTaskAccess().getAssignmentTaskAssignmentParserRuleCall_3_0());
-            				
-            pushFollow(FOLLOW_2);
-            lv_assignment_3_0=ruleTaskAssignment();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getTaskRule());
-            					}
-            					set(
-            						current,
-            						"assignment",
-            						lv_assignment_3_0 != null,
-            						"org.xtext.example.warehouse.WarehouseModelling.TaskAssignment");
-            					afterParserOrEnumRuleCall();
-            				
-
+            if ( (LA9_0==32) ) {
+                alt9=1;
             }
+            switch (alt9) {
+                case 1 :
+                    // InternalWarehouseModelling.g:757:4: (lv_assignment_3_0= ruleTaskAssignment )
+                    {
+                    // InternalWarehouseModelling.g:757:4: (lv_assignment_3_0= ruleTaskAssignment )
+                    // InternalWarehouseModelling.g:758:5: lv_assignment_3_0= ruleTaskAssignment
+                    {
 
+                    					newCompositeNode(grammarAccess.getTaskAccess().getAssignmentTaskAssignmentParserRuleCall_3_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_assignment_3_0=ruleTaskAssignment();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getTaskRule());
+                    					}
+                    					set(
+                    						current,
+                    						"assignment",
+                    						lv_assignment_3_0,
+                    						"org.xtext.example.warehouse.WarehouseModelling.TaskAssignment");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -1807,49 +1817,76 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleTaskAssignment"
-    // InternalWarehouseModelling.g:786:1: ruleTaskAssignment returns [EObject current=null] : (otherlv_0= 'TaskAssignment' otherlv_1= 'by' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'during' ( (otherlv_4= RULE_ID ) ) ( (lv_isDone_5_0= 'Completed' ) ) ) ;
+    // InternalWarehouseModelling.g:786:1: ruleTaskAssignment returns [EObject current=null] : (otherlv_0= 'Assignment' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'to' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'during' ( (otherlv_5= RULE_ID ) ) ( (lv_isDone_6_0= 'Completed' ) )? ) ;
     public final EObject ruleTaskAssignment() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
+        Token lv_id_1_0=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
-        Token lv_isDone_5_0=null;
+        Token otherlv_5=null;
+        Token lv_isDone_6_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalWarehouseModelling.g:792:2: ( (otherlv_0= 'TaskAssignment' otherlv_1= 'by' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'during' ( (otherlv_4= RULE_ID ) ) ( (lv_isDone_5_0= 'Completed' ) ) ) )
-            // InternalWarehouseModelling.g:793:2: (otherlv_0= 'TaskAssignment' otherlv_1= 'by' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'during' ( (otherlv_4= RULE_ID ) ) ( (lv_isDone_5_0= 'Completed' ) ) )
+            // InternalWarehouseModelling.g:792:2: ( (otherlv_0= 'Assignment' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'to' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'during' ( (otherlv_5= RULE_ID ) ) ( (lv_isDone_6_0= 'Completed' ) )? ) )
+            // InternalWarehouseModelling.g:793:2: (otherlv_0= 'Assignment' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'to' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'during' ( (otherlv_5= RULE_ID ) ) ( (lv_isDone_6_0= 'Completed' ) )? )
             {
-            // InternalWarehouseModelling.g:793:2: (otherlv_0= 'TaskAssignment' otherlv_1= 'by' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'during' ( (otherlv_4= RULE_ID ) ) ( (lv_isDone_5_0= 'Completed' ) ) )
-            // InternalWarehouseModelling.g:794:3: otherlv_0= 'TaskAssignment' otherlv_1= 'by' ( (otherlv_2= RULE_ID ) ) otherlv_3= 'during' ( (otherlv_4= RULE_ID ) ) ( (lv_isDone_5_0= 'Completed' ) )
+            // InternalWarehouseModelling.g:793:2: (otherlv_0= 'Assignment' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'to' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'during' ( (otherlv_5= RULE_ID ) ) ( (lv_isDone_6_0= 'Completed' ) )? )
+            // InternalWarehouseModelling.g:794:3: otherlv_0= 'Assignment' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'to' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'during' ( (otherlv_5= RULE_ID ) ) ( (lv_isDone_6_0= 'Completed' ) )?
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_24); 
+            otherlv_0=(Token)match(input,32,FOLLOW_4); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getTaskAssignmentAccess().getTaskAssignmentKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getTaskAssignmentAccess().getAssignmentKeyword_0());
             		
-            otherlv_1=(Token)match(input,33,FOLLOW_4); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getTaskAssignmentAccess().getByKeyword_1());
-            		
-            // InternalWarehouseModelling.g:802:3: ( (otherlv_2= RULE_ID ) )
-            // InternalWarehouseModelling.g:803:4: (otherlv_2= RULE_ID )
+            // InternalWarehouseModelling.g:798:3: ( (lv_id_1_0= RULE_ID ) )
+            // InternalWarehouseModelling.g:799:4: (lv_id_1_0= RULE_ID )
             {
-            // InternalWarehouseModelling.g:803:4: (otherlv_2= RULE_ID )
-            // InternalWarehouseModelling.g:804:5: otherlv_2= RULE_ID
+            // InternalWarehouseModelling.g:799:4: (lv_id_1_0= RULE_ID )
+            // InternalWarehouseModelling.g:800:5: lv_id_1_0= RULE_ID
+            {
+            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_24); 
+
+            					newLeafNode(lv_id_1_0, grammarAccess.getTaskAssignmentAccess().getIdIDTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getTaskAssignmentRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"id",
+            						lv_id_1_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,33,FOLLOW_4); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getTaskAssignmentAccess().getToKeyword_2());
+            		
+            // InternalWarehouseModelling.g:820:3: ( (otherlv_3= RULE_ID ) )
+            // InternalWarehouseModelling.g:821:4: (otherlv_3= RULE_ID )
+            {
+            // InternalWarehouseModelling.g:821:4: (otherlv_3= RULE_ID )
+            // InternalWarehouseModelling.g:822:5: otherlv_3= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getTaskAssignmentRule());
             					}
             				
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_25); 
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_25); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getTaskAssignmentAccess().getRoleRoleCrossReference_2_0());
+            					newLeafNode(otherlv_3, grammarAccess.getTaskAssignmentAccess().getRoleRoleCrossReference_3_0());
             				
 
             }
@@ -1857,24 +1894,24 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_3=(Token)match(input,34,FOLLOW_4); 
+            otherlv_4=(Token)match(input,34,FOLLOW_4); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getTaskAssignmentAccess().getDuringKeyword_3());
+            			newLeafNode(otherlv_4, grammarAccess.getTaskAssignmentAccess().getDuringKeyword_4());
             		
-            // InternalWarehouseModelling.g:819:3: ( (otherlv_4= RULE_ID ) )
-            // InternalWarehouseModelling.g:820:4: (otherlv_4= RULE_ID )
+            // InternalWarehouseModelling.g:837:3: ( (otherlv_5= RULE_ID ) )
+            // InternalWarehouseModelling.g:838:4: (otherlv_5= RULE_ID )
             {
-            // InternalWarehouseModelling.g:820:4: (otherlv_4= RULE_ID )
-            // InternalWarehouseModelling.g:821:5: otherlv_4= RULE_ID
+            // InternalWarehouseModelling.g:838:4: (otherlv_5= RULE_ID )
+            // InternalWarehouseModelling.g:839:5: otherlv_5= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getTaskAssignmentRule());
             					}
             				
-            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_26); 
+            otherlv_5=(Token)match(input,RULE_ID,FOLLOW_26); 
 
-            					newLeafNode(otherlv_4, grammarAccess.getTaskAssignmentAccess().getAvailabilityAvailabilityCrossReference_4_0());
+            					newLeafNode(otherlv_5, grammarAccess.getTaskAssignmentAccess().getAvailabilityAvailabilityCrossReference_5_0());
             				
 
             }
@@ -1882,25 +1919,36 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            // InternalWarehouseModelling.g:832:3: ( (lv_isDone_5_0= 'Completed' ) )
-            // InternalWarehouseModelling.g:833:4: (lv_isDone_5_0= 'Completed' )
-            {
-            // InternalWarehouseModelling.g:833:4: (lv_isDone_5_0= 'Completed' )
-            // InternalWarehouseModelling.g:834:5: lv_isDone_5_0= 'Completed'
-            {
-            lv_isDone_5_0=(Token)match(input,35,FOLLOW_2); 
+            // InternalWarehouseModelling.g:850:3: ( (lv_isDone_6_0= 'Completed' ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            					newLeafNode(lv_isDone_5_0, grammarAccess.getTaskAssignmentAccess().getIsDoneCompletedKeyword_5_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getTaskAssignmentRule());
-            					}
-            					setWithLastConsumed(current, "isDone", lv_isDone_5_0 != null, "Completed");
-            				
-
+            if ( (LA10_0==35) ) {
+                alt10=1;
             }
+            switch (alt10) {
+                case 1 :
+                    // InternalWarehouseModelling.g:851:4: (lv_isDone_6_0= 'Completed' )
+                    {
+                    // InternalWarehouseModelling.g:851:4: (lv_isDone_6_0= 'Completed' )
+                    // InternalWarehouseModelling.g:852:5: lv_isDone_6_0= 'Completed'
+                    {
+                    lv_isDone_6_0=(Token)match(input,35,FOLLOW_2); 
 
+                    					newLeafNode(lv_isDone_6_0, grammarAccess.getTaskAssignmentAccess().getIsDoneCompletedKeyword_6_0());
+                    				
+
+                    					if (current==null) {
+                    						current = createModelElement(grammarAccess.getTaskAssignmentRule());
+                    					}
+                    					setWithLastConsumed(current, "isDone", lv_isDone_6_0 != null, "Completed");
+                    				
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -1927,7 +1975,7 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleAvailability"
-    // InternalWarehouseModelling.g:850:1: entryRuleAvailability returns [EObject current=null] : iv_ruleAvailability= ruleAvailability EOF ;
+    // InternalWarehouseModelling.g:868:1: entryRuleAvailability returns [EObject current=null] : iv_ruleAvailability= ruleAvailability EOF ;
     public final EObject entryRuleAvailability() throws RecognitionException {
         EObject current = null;
 
@@ -1935,8 +1983,8 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
         try {
-            // InternalWarehouseModelling.g:850:53: (iv_ruleAvailability= ruleAvailability EOF )
-            // InternalWarehouseModelling.g:851:2: iv_ruleAvailability= ruleAvailability EOF
+            // InternalWarehouseModelling.g:868:53: (iv_ruleAvailability= ruleAvailability EOF )
+            // InternalWarehouseModelling.g:869:2: iv_ruleAvailability= ruleAvailability EOF
             {
              newCompositeNode(grammarAccess.getAvailabilityRule()); 
             pushFollow(FOLLOW_1);
@@ -1963,43 +2011,70 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleAvailability"
-    // InternalWarehouseModelling.g:857:1: ruleAvailability returns [EObject current=null] : (otherlv_0= 'Availability' otherlv_1= 'from' ( (lv_startTime_2_0= RULE_ID ) ) otherlv_3= 'to' ( (lv_endTime_4_0= RULE_ID ) ) ) ;
+    // InternalWarehouseModelling.g:875:1: ruleAvailability returns [EObject current=null] : (otherlv_0= 'Availability' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'from' ( (lv_startTime_3_0= RULE_STRING ) ) otherlv_4= 'to' ( (lv_endTime_5_0= RULE_STRING ) ) ) ;
     public final EObject ruleAvailability() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token lv_startTime_2_0=null;
-        Token otherlv_3=null;
-        Token lv_endTime_4_0=null;
+        Token lv_id_1_0=null;
+        Token otherlv_2=null;
+        Token lv_startTime_3_0=null;
+        Token otherlv_4=null;
+        Token lv_endTime_5_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalWarehouseModelling.g:863:2: ( (otherlv_0= 'Availability' otherlv_1= 'from' ( (lv_startTime_2_0= RULE_ID ) ) otherlv_3= 'to' ( (lv_endTime_4_0= RULE_ID ) ) ) )
-            // InternalWarehouseModelling.g:864:2: (otherlv_0= 'Availability' otherlv_1= 'from' ( (lv_startTime_2_0= RULE_ID ) ) otherlv_3= 'to' ( (lv_endTime_4_0= RULE_ID ) ) )
+            // InternalWarehouseModelling.g:881:2: ( (otherlv_0= 'Availability' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'from' ( (lv_startTime_3_0= RULE_STRING ) ) otherlv_4= 'to' ( (lv_endTime_5_0= RULE_STRING ) ) ) )
+            // InternalWarehouseModelling.g:882:2: (otherlv_0= 'Availability' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'from' ( (lv_startTime_3_0= RULE_STRING ) ) otherlv_4= 'to' ( (lv_endTime_5_0= RULE_STRING ) ) )
             {
-            // InternalWarehouseModelling.g:864:2: (otherlv_0= 'Availability' otherlv_1= 'from' ( (lv_startTime_2_0= RULE_ID ) ) otherlv_3= 'to' ( (lv_endTime_4_0= RULE_ID ) ) )
-            // InternalWarehouseModelling.g:865:3: otherlv_0= 'Availability' otherlv_1= 'from' ( (lv_startTime_2_0= RULE_ID ) ) otherlv_3= 'to' ( (lv_endTime_4_0= RULE_ID ) )
+            // InternalWarehouseModelling.g:882:2: (otherlv_0= 'Availability' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'from' ( (lv_startTime_3_0= RULE_STRING ) ) otherlv_4= 'to' ( (lv_endTime_5_0= RULE_STRING ) ) )
+            // InternalWarehouseModelling.g:883:3: otherlv_0= 'Availability' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= 'from' ( (lv_startTime_3_0= RULE_STRING ) ) otherlv_4= 'to' ( (lv_endTime_5_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_27); 
+            otherlv_0=(Token)match(input,36,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAvailabilityAccess().getAvailabilityKeyword_0());
             		
-            otherlv_1=(Token)match(input,37,FOLLOW_4); 
+            // InternalWarehouseModelling.g:887:3: ( (lv_id_1_0= RULE_ID ) )
+            // InternalWarehouseModelling.g:888:4: (lv_id_1_0= RULE_ID )
+            {
+            // InternalWarehouseModelling.g:888:4: (lv_id_1_0= RULE_ID )
+            // InternalWarehouseModelling.g:889:5: lv_id_1_0= RULE_ID
+            {
+            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_27); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getAvailabilityAccess().getFromKeyword_1());
+            					newLeafNode(lv_id_1_0, grammarAccess.getAvailabilityAccess().getIdIDTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getAvailabilityRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"id",
+            						lv_id_1_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,37,FOLLOW_5); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getAvailabilityAccess().getFromKeyword_2());
             		
-            // InternalWarehouseModelling.g:873:3: ( (lv_startTime_2_0= RULE_ID ) )
-            // InternalWarehouseModelling.g:874:4: (lv_startTime_2_0= RULE_ID )
+            // InternalWarehouseModelling.g:909:3: ( (lv_startTime_3_0= RULE_STRING ) )
+            // InternalWarehouseModelling.g:910:4: (lv_startTime_3_0= RULE_STRING )
             {
-            // InternalWarehouseModelling.g:874:4: (lv_startTime_2_0= RULE_ID )
-            // InternalWarehouseModelling.g:875:5: lv_startTime_2_0= RULE_ID
+            // InternalWarehouseModelling.g:910:4: (lv_startTime_3_0= RULE_STRING )
+            // InternalWarehouseModelling.g:911:5: lv_startTime_3_0= RULE_STRING
             {
-            lv_startTime_2_0=(Token)match(input,RULE_ID,FOLLOW_28); 
+            lv_startTime_3_0=(Token)match(input,RULE_STRING,FOLLOW_24); 
 
-            					newLeafNode(lv_startTime_2_0, grammarAccess.getAvailabilityAccess().getStartTimeIDTerminalRuleCall_2_0());
+            					newLeafNode(lv_startTime_3_0, grammarAccess.getAvailabilityAccess().getStartTimeSTRINGTerminalRuleCall_3_0());
             				
 
             					if (current==null) {
@@ -2008,8 +2083,8 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             					setWithLastConsumed(
             						current,
             						"startTime",
-            						lv_startTime_2_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						lv_startTime_3_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -2017,19 +2092,19 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_3=(Token)match(input,38,FOLLOW_4); 
+            otherlv_4=(Token)match(input,33,FOLLOW_5); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getAvailabilityAccess().getToKeyword_3());
+            			newLeafNode(otherlv_4, grammarAccess.getAvailabilityAccess().getToKeyword_4());
             		
-            // InternalWarehouseModelling.g:895:3: ( (lv_endTime_4_0= RULE_ID ) )
-            // InternalWarehouseModelling.g:896:4: (lv_endTime_4_0= RULE_ID )
+            // InternalWarehouseModelling.g:931:3: ( (lv_endTime_5_0= RULE_STRING ) )
+            // InternalWarehouseModelling.g:932:4: (lv_endTime_5_0= RULE_STRING )
             {
-            // InternalWarehouseModelling.g:896:4: (lv_endTime_4_0= RULE_ID )
-            // InternalWarehouseModelling.g:897:5: lv_endTime_4_0= RULE_ID
+            // InternalWarehouseModelling.g:932:4: (lv_endTime_5_0= RULE_STRING )
+            // InternalWarehouseModelling.g:933:5: lv_endTime_5_0= RULE_STRING
             {
-            lv_endTime_4_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_endTime_5_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newLeafNode(lv_endTime_4_0, grammarAccess.getAvailabilityAccess().getEndTimeIDTerminalRuleCall_4_0());
+            					newLeafNode(lv_endTime_5_0, grammarAccess.getAvailabilityAccess().getEndTimeSTRINGTerminalRuleCall_5_0());
             				
 
             					if (current==null) {
@@ -2038,8 +2113,8 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
             					setWithLastConsumed(
             						current,
             						"endTime",
-            						lv_endTime_4_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						lv_endTime_5_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -2077,29 +2152,28 @@ public class InternalWarehouseModellingParser extends AbstractInternalAntlrParse
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000000A000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000044000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000A0000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000012000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001800000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000000A000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000044000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000000A0000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000012000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000800002L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000100000002L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000200000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000800000002L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
 
 }

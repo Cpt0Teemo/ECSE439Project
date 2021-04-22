@@ -21,7 +21,7 @@ import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.RoleImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.RoleImpl#getEmployeeId <em>Employee Id</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.RoleImpl#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.impl.RoleImpl#getEndDate <em>End Date</em>}</li>
  * </ul>
@@ -31,24 +31,24 @@ import org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage;
 public class RoleImpl extends MinimalEObjectImpl.Container implements Role
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getEmployeeId() <em>Employee Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getEmployeeId()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String EMPLOYEE_ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getEmployeeId() <em>Employee Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getEmployeeId()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String employeeId = EMPLOYEE_ID_EDEFAULT;
 
   /**
    * The default value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
@@ -117,9 +117,9 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * @generated
    */
   @Override
-  public String getId()
+  public String getEmployeeId()
   {
-    return id;
+    return employeeId;
   }
 
   /**
@@ -128,12 +128,12 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * @generated
    */
   @Override
-  public void setId(String newId)
+  public void setEmployeeId(String newEmployeeId)
   {
-    String oldId = id;
-    id = newId;
+    String oldEmployeeId = employeeId;
+    employeeId = newEmployeeId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WarehouseModellingPackage.ROLE__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, WarehouseModellingPackage.ROLE__EMPLOYEE_ID, oldEmployeeId, employeeId));
   }
 
   /**
@@ -196,8 +196,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case WarehouseModellingPackage.ROLE__ID:
-        return getId();
+      case WarehouseModellingPackage.ROLE__EMPLOYEE_ID:
+        return getEmployeeId();
       case WarehouseModellingPackage.ROLE__START_DATE:
         return getStartDate();
       case WarehouseModellingPackage.ROLE__END_DATE:
@@ -216,8 +216,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case WarehouseModellingPackage.ROLE__ID:
-        setId((String)newValue);
+      case WarehouseModellingPackage.ROLE__EMPLOYEE_ID:
+        setEmployeeId((String)newValue);
         return;
       case WarehouseModellingPackage.ROLE__START_DATE:
         setStartDate((String)newValue);
@@ -239,8 +239,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case WarehouseModellingPackage.ROLE__ID:
-        setId(ID_EDEFAULT);
+      case WarehouseModellingPackage.ROLE__EMPLOYEE_ID:
+        setEmployeeId(EMPLOYEE_ID_EDEFAULT);
         return;
       case WarehouseModellingPackage.ROLE__START_DATE:
         setStartDate(START_DATE_EDEFAULT);
@@ -262,8 +262,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case WarehouseModellingPackage.ROLE__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case WarehouseModellingPackage.ROLE__EMPLOYEE_ID:
+        return EMPLOYEE_ID_EDEFAULT == null ? employeeId != null : !EMPLOYEE_ID_EDEFAULT.equals(employeeId);
       case WarehouseModellingPackage.ROLE__START_DATE:
         return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
       case WarehouseModellingPackage.ROLE__END_DATE:
@@ -283,8 +283,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (employeeId: ");
+    result.append(employeeId);
     result.append(", startDate: ");
     result.append(startDate);
     result.append(", endDate: ");

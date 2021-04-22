@@ -365,7 +365,7 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
-  public EAttribute getRole_Id()
+  public EAttribute getRole_EmployeeId()
   {
     return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
   }
@@ -475,9 +475,9 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
-  public EAttribute getTask_Assignment()
+  public EReference getTask_Assignment()
   {
-    return (EAttribute)taskEClass.getEStructuralFeatures().get(2);
+    return (EReference)taskEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -497,9 +497,9 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
-  public EReference getTaskAssignment_Role()
+  public EAttribute getTaskAssignment_Id()
   {
-    return (EReference)taskAssignmentEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)taskAssignmentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -508,7 +508,7 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
-  public EReference getTaskAssignment_Availability()
+  public EReference getTaskAssignment_Role()
   {
     return (EReference)taskAssignmentEClass.getEStructuralFeatures().get(1);
   }
@@ -519,9 +519,20 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
+  public EReference getTaskAssignment_Availability()
+  {
+    return (EReference)taskAssignmentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getTaskAssignment_IsDone()
   {
-    return (EAttribute)taskAssignmentEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)taskAssignmentEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -541,7 +552,7 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
-  public EAttribute getAvailability_StartTime()
+  public EAttribute getAvailability_Id()
   {
     return (EAttribute)availabilityEClass.getEStructuralFeatures().get(0);
   }
@@ -552,9 +563,20 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
    * @generated
    */
   @Override
-  public EAttribute getAvailability_EndTime()
+  public EAttribute getAvailability_StartTime()
   {
     return (EAttribute)availabilityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAvailability_EndTime()
+  {
+    return (EAttribute)availabilityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -610,7 +632,7 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
     createEReference(personEClass, PERSON__ROLES);
 
     roleEClass = createEClass(ROLE);
-    createEAttribute(roleEClass, ROLE__ID);
+    createEAttribute(roleEClass, ROLE__EMPLOYEE_ID);
     createEAttribute(roleEClass, ROLE__START_DATE);
     createEAttribute(roleEClass, ROLE__END_DATE);
 
@@ -623,14 +645,16 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
     taskEClass = createEClass(TASK);
     createEAttribute(taskEClass, TASK__ID);
     createEAttribute(taskEClass, TASK__DESCRIPTION);
-    createEAttribute(taskEClass, TASK__ASSIGNMENT);
+    createEReference(taskEClass, TASK__ASSIGNMENT);
 
     taskAssignmentEClass = createEClass(TASK_ASSIGNMENT);
+    createEAttribute(taskAssignmentEClass, TASK_ASSIGNMENT__ID);
     createEReference(taskAssignmentEClass, TASK_ASSIGNMENT__ROLE);
     createEReference(taskAssignmentEClass, TASK_ASSIGNMENT__AVAILABILITY);
     createEAttribute(taskAssignmentEClass, TASK_ASSIGNMENT__IS_DONE);
 
     availabilityEClass = createEClass(AVAILABILITY);
+    createEAttribute(availabilityEClass, AVAILABILITY__ID);
     createEAttribute(availabilityEClass, AVAILABILITY__START_TIME);
     createEAttribute(availabilityEClass, AVAILABILITY__END_TIME);
   }
@@ -690,7 +714,7 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
     initEReference(getPerson_Roles(), this.getRole(), null, "roles", null, 0, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRole_Id(), ecorePackage.getEString(), "id", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRole_EmployeeId(), ecorePackage.getEString(), "employeeId", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRole_StartDate(), ecorePackage.getEString(), "startDate", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRole_EndDate(), ecorePackage.getEString(), "endDate", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -703,14 +727,16 @@ public class WarehouseModellingPackageImpl extends EPackageImpl implements Wareh
     initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTask_Id(), ecorePackage.getEString(), "id", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTask_Assignment(), ecorePackage.getEBoolean(), "assignment", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTask_Assignment(), this.getTaskAssignment(), null, "assignment", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(taskAssignmentEClass, TaskAssignment.class, "TaskAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTaskAssignment_Id(), ecorePackage.getEString(), "id", null, 0, 1, TaskAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTaskAssignment_Role(), this.getRole(), null, "role", null, 0, 1, TaskAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTaskAssignment_Availability(), this.getAvailability(), null, "availability", null, 0, 1, TaskAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTaskAssignment_IsDone(), ecorePackage.getEBoolean(), "isDone", null, 0, 1, TaskAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(availabilityEClass, Availability.class, "Availability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAvailability_Id(), ecorePackage.getEString(), "id", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAvailability_StartTime(), ecorePackage.getEString(), "startTime", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAvailability_EndTime(), ecorePackage.getEString(), "endTime", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

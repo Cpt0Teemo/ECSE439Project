@@ -28,7 +28,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Person/roles"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//Role">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/employeeId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/startDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Role/endDate"/>
     </genClasses>
@@ -41,14 +41,16 @@
     <genClasses ecoreClass="WarehouseModelling.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Task/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Task/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Task/assignment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//Task/assignment"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//TaskAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//TaskAssignment/id"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//TaskAssignment/role"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WarehouseModelling.ecore#//TaskAssignment/availability"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//TaskAssignment/isDone"/>
     </genClasses>
     <genClasses ecoreClass="WarehouseModelling.ecore#//Availability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Availability/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Availability/startTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WarehouseModelling.ecore#//Availability/endTime"/>
     </genClasses>

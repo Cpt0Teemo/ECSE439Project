@@ -8,7 +8,7 @@ WarehouseManagement:
 ;
 
 Company:
-	'Company' name=ID address=ID
+	'Company' name=ID address=STRING
 	'Warehouses:'
 	(warehouses+=Warehouse)*
 	'Teams:'
@@ -36,22 +36,22 @@ Role:
 ;
 
 Employee:
-	'Employee' id=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))* 
+	'Employee' employeeId=ID startDate=STRING endDate=STRING 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))* 
 ;
 
 Manager:
-	'Manager' id=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
+	'Manager' employeeId=ID startDate=STRING endDate=STRING 'of' 'team' manages=[Team]
 ;
 
 Task:
 	'Task' id=ID description=STRING
-	assignment?=TaskAssignment
+	(assignment=TaskAssignment)?
 ;
 
 TaskAssignment:
-	'TaskAssignment' 'by' role=[Role] 'during' availability=[Availability] isDone?='Completed'
+	'Assignment' id=ID 'to' role=[Role] 'during' availability=[Availability] (isDone?='Completed')?
 ;
 
 Availability:
-	'Availability' 'from' startTime=ID 'to' endTime=ID
+	'Availability' id=ID 'from' startTime=STRING 'to' endTime=STRING
 ;

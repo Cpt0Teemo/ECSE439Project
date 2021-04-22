@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Role#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Role#getEmployeeId <em>Employee Id</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Role#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link org.xtext.example.warehouse.warehouseModelling.Role#getEndDate <em>End Date</em>}</li>
  * </ul>
@@ -26,26 +26,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Role extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Employee Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage#getRole_Id()
+   * @return the value of the '<em>Employee Id</em>' attribute.
+   * @see #setEmployeeId(String)
+   * @see org.xtext.example.warehouse.warehouseModelling.WarehouseModellingPackage#getRole_EmployeeId()
    * @model
    * @generated
    */
-  String getId();
+  String getEmployeeId();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.warehouse.warehouseModelling.Role#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.warehouse.warehouseModelling.Role#getEmployeeId <em>Employee Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
+   * @param value the new value of the '<em>Employee Id</em>' attribute.
+   * @see #getEmployeeId()
    * @generated
    */
-  void setId(String value);
+  void setEmployeeId(String value);
 
   /**
    * Returns the value of the '<em><b>Start Date</b></em>' attribute.

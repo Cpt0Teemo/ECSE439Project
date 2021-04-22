@@ -262,13 +262,13 @@ public interface WarehouseModellingPackage extends EPackage
   int ROLE = 5;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Employee Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROLE__ID = 0;
+  int ROLE__EMPLOYEE_ID = 0;
 
   /**
    * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -308,13 +308,13 @@ public interface WarehouseModellingPackage extends EPackage
   int EMPLOYEE = 6;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Employee Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMPLOYEE__ID = ROLE__ID;
+  int EMPLOYEE__EMPLOYEE_ID = ROLE__EMPLOYEE_ID;
 
   /**
    * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -363,13 +363,13 @@ public interface WarehouseModellingPackage extends EPackage
   int MANAGER = 7;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Employee Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MANAGER__ID = ROLE__ID;
+  int MANAGER__EMPLOYEE_ID = ROLE__EMPLOYEE_ID;
 
   /**
    * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -436,7 +436,7 @@ public interface WarehouseModellingPackage extends EPackage
   int TASK__DESCRIPTION = 1;
 
   /**
-   * The feature id for the '<em><b>Assignment</b></em>' attribute.
+   * The feature id for the '<em><b>Assignment</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -464,13 +464,22 @@ public interface WarehouseModellingPackage extends EPackage
   int TASK_ASSIGNMENT = 9;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_ASSIGNMENT__ID = 0;
+
+  /**
    * The feature id for the '<em><b>Role</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TASK_ASSIGNMENT__ROLE = 0;
+  int TASK_ASSIGNMENT__ROLE = 1;
 
   /**
    * The feature id for the '<em><b>Availability</b></em>' reference.
@@ -479,7 +488,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TASK_ASSIGNMENT__AVAILABILITY = 1;
+  int TASK_ASSIGNMENT__AVAILABILITY = 2;
 
   /**
    * The feature id for the '<em><b>Is Done</b></em>' attribute.
@@ -488,7 +497,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TASK_ASSIGNMENT__IS_DONE = 2;
+  int TASK_ASSIGNMENT__IS_DONE = 3;
 
   /**
    * The number of structural features of the '<em>Task Assignment</em>' class.
@@ -497,7 +506,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TASK_ASSIGNMENT_FEATURE_COUNT = 3;
+  int TASK_ASSIGNMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.AvailabilityImpl <em>Availability</em>}' class.
@@ -510,13 +519,22 @@ public interface WarehouseModellingPackage extends EPackage
   int AVAILABILITY = 10;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AVAILABILITY__ID = 0;
+
+  /**
    * The feature id for the '<em><b>Start Time</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AVAILABILITY__START_TIME = 0;
+  int AVAILABILITY__START_TIME = 1;
 
   /**
    * The feature id for the '<em><b>End Time</b></em>' attribute.
@@ -525,7 +543,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AVAILABILITY__END_TIME = 1;
+  int AVAILABILITY__END_TIME = 2;
 
   /**
    * The number of structural features of the '<em>Availability</em>' class.
@@ -534,7 +552,7 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AVAILABILITY_FEATURE_COUNT = 2;
+  int AVAILABILITY_FEATURE_COUNT = 3;
 
 
   /**
@@ -719,15 +737,15 @@ public interface WarehouseModellingPackage extends EPackage
   EClass getRole();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Role#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Role#getEmployeeId <em>Employee Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.xtext.example.warehouse.warehouseModelling.Role#getId()
+   * @return the meta object for the attribute '<em>Employee Id</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Role#getEmployeeId()
    * @see #getRole()
    * @generated
    */
-  EAttribute getRole_Id();
+  EAttribute getRole_EmployeeId();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Role#getStartDate <em>Start Date</em>}'.
@@ -826,15 +844,15 @@ public interface WarehouseModellingPackage extends EPackage
   EAttribute getTask_Description();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Task#isAssignment <em>Assignment</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.warehouse.warehouseModelling.Task#getAssignment <em>Assignment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Assignment</em>'.
-   * @see org.xtext.example.warehouse.warehouseModelling.Task#isAssignment()
+   * @return the meta object for the containment reference '<em>Assignment</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Task#getAssignment()
    * @see #getTask()
    * @generated
    */
-  EAttribute getTask_Assignment();
+  EReference getTask_Assignment();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment <em>Task Assignment</em>}'.
@@ -845,6 +863,17 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    */
   EClass getTaskAssignment();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getId()
+   * @see #getTaskAssignment()
+   * @generated
+   */
+  EAttribute getTaskAssignment_Id();
 
   /**
    * Returns the meta object for the reference '{@link org.xtext.example.warehouse.warehouseModelling.TaskAssignment#getRole <em>Role</em>}'.
@@ -888,6 +917,17 @@ public interface WarehouseModellingPackage extends EPackage
    * @generated
    */
   EClass getAvailability();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Availability#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.warehouse.warehouseModelling.Availability#getId()
+   * @see #getAvailability()
+   * @generated
+   */
+  EAttribute getAvailability_Id();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.example.warehouse.warehouseModelling.Availability#getStartTime <em>Start Time</em>}'.
@@ -1083,12 +1123,12 @@ public interface WarehouseModellingPackage extends EPackage
     EClass ROLE = eINSTANCE.getRole();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Employee Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROLE__ID = eINSTANCE.getRole_Id();
+    EAttribute ROLE__EMPLOYEE_ID = eINSTANCE.getRole_EmployeeId();
 
     /**
      * The meta object literal for the '<em><b>Start Date</b></em>' attribute feature.
@@ -1169,12 +1209,12 @@ public interface WarehouseModellingPackage extends EPackage
     EAttribute TASK__DESCRIPTION = eINSTANCE.getTask_Description();
 
     /**
-     * The meta object literal for the '<em><b>Assignment</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Assignment</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TASK__ASSIGNMENT = eINSTANCE.getTask_Assignment();
+    EReference TASK__ASSIGNMENT = eINSTANCE.getTask_Assignment();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.warehouse.warehouseModelling.impl.TaskAssignmentImpl <em>Task Assignment</em>}' class.
@@ -1185,6 +1225,14 @@ public interface WarehouseModellingPackage extends EPackage
      * @generated
      */
     EClass TASK_ASSIGNMENT = eINSTANCE.getTaskAssignment();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TASK_ASSIGNMENT__ID = eINSTANCE.getTaskAssignment_Id();
 
     /**
      * The meta object literal for the '<em><b>Role</b></em>' reference feature.
@@ -1219,6 +1267,14 @@ public interface WarehouseModellingPackage extends EPackage
      * @generated
      */
     EClass AVAILABILITY = eINSTANCE.getAvailability();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AVAILABILITY__ID = eINSTANCE.getAvailability_Id();
 
     /**
      * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
