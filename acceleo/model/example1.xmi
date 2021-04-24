@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<wH:WarehouseManagement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wH="http://www.xtext.org/example/wh/WH">
+  <companies name="CoolCompanyInc" address="3000 Rue Coolio, QC H8T 3P8">
+    <warehouses name="Warehouse10020">
+      <workers name="p1">
+        <roles xsi:type="wH:Manager" name="m1" startDate="13/11/1999" endDate="31/01/2022" manages="//@companies.0/@teams.0"/>
+      </workers>
+      <workers name="p2">
+        <roles xsi:type="wH:Employee" name="e1" startDate="13/11/1999" endDate="31/11/2023">
+          <availabilities name="av2" startTime="31/01/2022" endTime="23/02/2020"/>
+        </roles>
+      </workers>
+    </warehouses>
+    <teams name="TeamB1"/>
+    <tasks name="t1" description="this is a random task"/>
+  </companies>
+</wH:WarehouseManagement>

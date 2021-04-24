@@ -1,0 +1,52 @@
+Company Amazon '3000 Rue Louis A Amos, Lachine, QC H8T 3P8'
+Warehouses:
+	Warehouse Warehouse10020 {
+		Person p1 with roles [
+			Employee xe1 13/11/1999 12/11/2009 available for
+				Availability av1 from 12/13/2010 to 23/02/2018,
+			Manager m1 13/11/2009 31/01/2022 of team TeamB1
+		]
+		Person p2 with roles [
+			Employee e1 13/11/1999 31/11/2023 available for
+				Availability av2 from 31/01/2022 to 23/02/2020
+		]
+		Person p3 with roles [
+			Employee e2 13/11/1999 31/01/2022 available for
+				Availability av3 from 31/01/2022 to 23/02/2020
+		]
+	}
+	Warehouse Warehouse10030 {
+		Person m1 with roles [
+			Manager m2 12/12/1999 31/01/2022 of team TeamB2
+		]
+	}
+Teams:
+	Team TeamB1
+	Team TeamB2
+Tasks:
+	Task t1 'this is a random task'
+	Task t2 'Repair bathroom'
+	Task t3 'Find a way to sell faster'
+
+Company Microsoft '2000 McGill College Ave, Montreal, Quebec H3A 3H3'
+Warehouses:
+	Warehouse mw304 {
+		Person p1 with roles [
+			Employee xe2 13/11/1999 12/13/2003 available for
+				Availability av4 from 12/13/1999 to 23/02/2019,
+				Availability av5 from 01/05/2019 to 23/02/2020,
+			Manager m3 24/02/2020 31/01/2022 of team TeamM1
+		]
+		Person p2 with roles [
+			Employee e3 13/11/1999 31/01/2022 available for
+				Availability av6 from 12/13/1999 to 23/02/2020
+		]
+		Person p3 with roles [
+			Employee e4 13/11/1999 31/01/2022 available for
+				Availability av7 from 12/13/1999 to 23/02/2020
+		]
+	}
+Teams:
+	Team TeamM1
+Tasks:
+	Task t4 'this is another random task'

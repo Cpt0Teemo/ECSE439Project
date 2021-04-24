@@ -1,0 +1,58 @@
+grammar org.xtext.example.wh.WH with org.eclipse.xtext.common.Terminals
+
+generate wH "http://www.xtext.org/example/wh/WH"
+
+WarehouseManagement:
+	(companies+=Company)*
+;
+
+Company:
+	'Company' name=ID address=STRING
+	'Warehouses:'
+	(warehouses+=Warehouse)+
+	'Teams:'
+	(teams+=Team)+
+	'Tasks:'
+	(tasks+=Task)+
+;
+
+Warehouse:
+	'Warehouse' name=ID '{'
+		(workers+=Person)+
+	'}'
+;
+
+Team:
+	'Team' name=ID
+;
+
+Person:
+	'Person' name=ID 'with' 'roles' '[' (roles+=Role) (',' (roles+=Role))* ']'
+;
+
+Role:
+	Employee | Manager
+;
+
+Employee:
+	'Employee' name=ID startDate=DATE endDate=DATE 'available' 'for' (availabilities+=Availability) (',' (availabilities+=Availability))* 
+;
+
+Manager:
+	'Manager' name=ID startDate=DATE endDate=DATE 'of' 'team' manages=[Team]
+;
+
+Task:
+	'Task' name=ID description=STRING
+	(assignment=TaskAssignment)?
+;
+
+TaskAssignment:
+	'Assigned' 'to' role=[Role] 'during' availability=[Availability] (isDone?='Completed')?
+;
+
+Availability:
+	'Availability' name=ID 'from' startTime=DATE 'to' endTime=DATE
+;
+
+terminal DATE: ('0'..'3')('0'..'9')'/'('0'..'1')('0'..'9')'/'('1'..'2')('0'..'9')('0'..'9')('0'..'9');

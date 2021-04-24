@@ -1,0 +1,15 @@
+Company CoolCompanyInc '3000 Rue Coolio, QC H8T 3P8'
+Warehouses:
+	Warehouse Warehouse10020 {
+		Person p1 with roles [
+			Manager m1 13/11/1999 31/01/2022 of team TeamB1
+		]
+		Person p2 with roles [
+			Employee e1 13/11/1999 31/11/2023 available for
+				Availability av2 from 31/01/2022 to 23/02/2020
+		]
+	}
+Teams:
+	Team TeamB1
+Tasks:
+	Task t1 'this is a random task'

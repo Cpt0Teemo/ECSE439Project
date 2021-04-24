@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.wh
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.wh
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.wh; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.xtext.example.wh,
+ org.xtext.example.wh.wH.impl,
+ org.xtext.example.wh.serializer,
+ org.xtext.example.wh.wH,
+ org.xtext.example.wh.services,
+ org.xtext.example.wh.parser.antlr.internal,
+ org.xtext.example.wh.generator,
+ org.xtext.example.wh.wH.util,
+ org.xtext.example.wh.parser.antlr,
+ org.xtext.example.wh.validation,
+ org.xtext.example.wh.scoping
+Import-Package: org.apache.log4j

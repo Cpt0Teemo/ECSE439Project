@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<wH:WarehouseManagement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wH="http://www.xtext.org/example/wh/WH">
+  <companies name="Amazon" address="3000 Rue Louis A Amos, Lachine, QC H8T 3P8">
+    <warehouses name="Warehouse10020">
+      <workers name="p1">
+        <roles xsi:type="wH:Employee" name="xe1" startDate="13/11/1999" endDate="12/11/2009">
+          <availabilities name="av1" startTime="12/13/2010" endTime="23/02/2018"/>
+        </roles>
+        <roles xsi:type="wH:Manager" name="m1" startDate="13/11/2009" endDate="31/01/2022" manages="//@companies.0/@teams.0"/>
+      </workers>
+      <workers name="p2">
+        <roles xsi:type="wH:Employee" name="e1" startDate="13/11/1999" endDate="31/11/2023">
+          <availabilities name="av2" startTime="31/01/2022" endTime="23/02/2020"/>
+        </roles>
+      </workers>
+      <workers name="p3">
+        <roles xsi:type="wH:Employee" name="e2" startDate="13/11/1999" endDate="31/01/2022">
+          <availabilities name="av3" startTime="31/01/2022" endTime="23/02/2020"/>
+        </roles>
+      </workers>
+    </warehouses>
+    <warehouses name="Warehouse10030">
+      <workers name="m1">
+        <roles xsi:type="wH:Manager" name="m2" startDate="12/12/1999" endDate="31/01/2022" manages="//@companies.0/@teams.1"/>
+      </workers>
+    </warehouses>
+    <teams name="TeamB1"/>
+    <teams name="TeamB2"/>
+    <tasks name="t1" description="this is a random task"/>
+    <tasks name="t2" description="Repair bathroom"/>
+    <tasks name="t3" description="Find a way to sell faster"/>
+  </companies>
+  <companies name="Microsoft" address="2000 McGill College Ave, Montreal, Quebec H3A 3H3">
+    <warehouses name="mw304">
+      <workers name="p1">
+        <roles xsi:type="wH:Employee" name="xe2" startDate="13/11/1999" endDate="12/13/2003">
+          <availabilities name="av4" startTime="12/13/1999" endTime="23/02/2019"/>
+          <availabilities name="av5" startTime="01/05/2019" endTime="23/02/2020"/>
+        </roles>
+        <roles xsi:type="wH:Manager" name="m3" startDate="24/02/2020" endDate="31/01/2022" manages="//@companies.1/@teams.0"/>
+      </workers>
+      <workers name="p2">
+        <roles xsi:type="wH:Employee" name="e3" startDate="13/11/1999" endDate="31/01/2022">
+          <availabilities name="av6" startTime="12/13/1999" endTime="23/02/2020"/>
+        </roles>
+      </workers>
+      <workers name="p3">
+        <roles xsi:type="wH:Employee" name="e4" startDate="13/11/1999" endDate="31/01/2022">
+          <availabilities name="av7" startTime="12/13/1999" endTime="23/02/2020"/>
+        </roles>
+      </workers>
+    </warehouses>
+    <teams name="TeamM1"/>
+    <tasks name="t4" description="this is another random task"/>
+  </companies>
+</wH:WarehouseManagement>

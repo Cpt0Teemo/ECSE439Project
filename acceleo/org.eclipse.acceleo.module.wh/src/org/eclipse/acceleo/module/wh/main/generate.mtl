@@ -1,0 +1,79 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.xtext.org/example/wh/WH')]
+
+
+[template public generateElement(aWHMS : WarehouseManagement)]
+[comment @main/]
+[file (('WHMS.java'), false, 'UTF-8')]
+class WHMS{
+	public static void main(String['[]'/] args) {
+
+		WHFactory factory = WHFactory.eINSTANCE;
+		WarehouseManagement aWhm = factory.createWarehouseManagement();
+
+		[for (aCompany : Company | aWHMS.companies)]
+		//creating company
+		Company [aCompany.name/] = factory.createCompany();
+		[aCompany.name/].setName("[aCompany.name/]");
+		[aCompany.name/].setAddress("[aCompany.address/]");
+		aWhm.getCompanies().add([aCompany.name/]);
+		
+			[for (aWarehouse : Warehouse | aCompany.warehouses)]
+			//createing warehouse
+			Warehouse [aWarehouse.name/] = factory.createWarehouse();
+			[aWarehouse.name/].setName("[aWarehouse.name/]");
+			[aCompany.name/].getWarehouses().add([aWarehouse.name/]);
+	
+				[for (aPerson : Person | aWarehouse.workers)]
+				//creating person
+				Person [aPerson.name/] = factory.createPerson();
+				[aWarehouse.name/].getWorkers().add([aPerson.name/]);
+				[aPerson.name/].setName("[aPerson.name/]");
+					[for (aRole : Role | aPerson.roles)]
+					//creating roles
+					[if (aRole.eClass() = "Employee")]
+					//create employee role
+					Employee [aRole.name/] = factory.createEmployee();
+						[let aEmployee : Employee = aRole]
+						[for (aAvailability : Availability | aEmployee.availabilities )]
+						//create employee availability
+						Availability [aAvailability.name/] = factory.createAvailability();
+						[aAvailability.name/].setId("[aAvailability.name/]") ;
+						[aAvailability.name/].setStartTime("[aAvailability.startTime/]"); 
+						[aAvailability.name/].setEndTime("[aAvailability.endTime/]") ;
+
+						[/for]
+						[/let]
+					[/if]
+					[if (aRole.eClass() = "Manager")]
+					//create mamager role
+					Manager [aRole.name/] = factory.createManager();
+					[/if]
+					[aPerson.name/].getRoles().add([aRole.name/]);
+					[aRole.name/].setEmployeeId("[aRole.name/]");
+					[aRole.name/].setStartDate("[aRole.startDate/]");
+					[aRole.name/].setEndDate("[aRole.endDate/]");
+				
+					[/for]
+				[/for]
+			[/for]
+			
+			//create teams
+			[for (aTeam : Team | aCompany.teams)]
+			Team [aTeam.name/] = factory.createTeam();
+			[aCompany.name/].getTeams().add([aTeam.name/]);
+			[aTeam.name/].setName("[aTeam.name/]");
+			[/for]
+				
+			//create tasks
+			[for (aTask : Task | aCompany.tasks)]
+			Task [aTask.name/] = factory.createTask();
+			[aCompany.name/].getTasks().add([aTask.name/]);
+			[aTask.name/].setId("[aTask.name/]");
+			[aTask.name/].setDescription("[aTask.description/]");
+			[/for]
+		[/for]
+	}
+}
+[/file]
+[/template]
